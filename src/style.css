@@ -16,7 +16,7 @@ body {
     width: 100vw;
     text-align: center;
     padding-top: 1vh;
-    border: 1pt yellow dotted;
+  background-color:tomato ;
     /* background-color: yellow; */
     height: 1vh;
     color: white;
@@ -94,7 +94,7 @@ body {
     background-color: white;
     width: 100vw;
     position: absolute;
-    border: 1pt red dotted;
+    /* border: 1pt red dotted; */
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr;
@@ -115,7 +115,7 @@ body {
 #qsContent{
     text-align: center;
     color: black;
-    background-color: red;
+    /* background-color: red; */
     margin: auto;
     width: 100%;
     height: 20vh;

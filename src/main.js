@@ -1,5 +1,6 @@
-import jsonOBJ from './whitesnake.js';
+// import jsonOBJ from './whitesnake.js';
 
+import jsonOBJ from './whitesnakeAudio.js'
 
 //button click shows different stories 
 let rightBtn = document.getElementById("rightBtn");
@@ -40,6 +41,30 @@ function getQs(color) {
     return questionArr;
 }
 
+//need to load the sounds first 
+function getAudio(color) {
+    let audioArr = [];
+    let contentArr;
+    if (color == "blue") {
+        contentArr = jsonOBJ.Blue;
+    }
+    if (color == "white") {
+        contentArr = jsonOBJ.White;
+    }
+    if (color == "red") {
+        contentArr = jsonOBJ.Red;
+    }
+    if (color == "green") {
+        contentArr = jsonOBJ.Green;
+    }
+    contentArr.forEach(e => {
+        audioArr.push(e.Audio)
+    });
+    console.log(audioArr);
+
+    return audioArr; //this shows the src of the audio files 
+}
+
 
 function getAns(color) {
     let answerArr = [];
@@ -70,6 +95,7 @@ let whiteArr = getQs("white");
 let greenArr = getQs("green");
 let redArr = getQs("red");
 
+// let blueAudioArr = getAudio("blue");
 
 let blueAnswerArr = getAns("blue");
 let whiteAnswerArr = getAns("white");
@@ -148,7 +174,7 @@ leftBtn.addEventListener("click", function () {
 
 blue.addEventListener("click", function () {
     state = "blue";
-    counter=0;
+    counter = 0;
     qsContent.innerHTML = blueArr[index];
 
 })
@@ -156,7 +182,7 @@ blue.addEventListener("click", function () {
 
 red.addEventListener("click", function () {
     state = "red";
-    counter=0;
+    counter = 0;
     qsContent.innerHTML = redArr[index];
 
 
@@ -165,7 +191,7 @@ red.addEventListener("click", function () {
 
 white.addEventListener("click", function () {
     state = "white";
-    counter=0;
+    counter = 0;
     qsContent.innerHTML = whiteArr[index];
 
 
@@ -174,7 +200,7 @@ white.addEventListener("click", function () {
 
 green.addEventListener("click", function () {
     state = "green";
-    counter=0;
+    counter = 0;
     qsContent.innerHTML = redArr[index];
 
 
@@ -193,13 +219,15 @@ let score = document.getElementById("score");
 let scoreContent = document.createElement("p");
 score.appendChild(scoreContent)
 scoreContent.style.textAlign = "center";
-scoreContent.textContent="0/4";
+scoreContent.textContent = "0/4";
+
+
+//get the index - select the correponding answers 
 
 qsContent.addEventListener("click", function () {
-    //get the index - select the correponding answers 
-
     if (state == "blue") {
         showAnswers(blueAnswerArr);
+        playAudios(blueAudioArr); //play the audio
     }
 
     if (state == "white") {
@@ -216,6 +244,10 @@ qsContent.addEventListener("click", function () {
 });
 
 
+//change the state if the four for each character is finished 
+//show intro information 
+//show outro information - gets to vote - two buttons - show different outcome 
+
 function showAnswers(answerArrays) {
 
     if (counter > 3) {
@@ -229,4 +261,34 @@ function showAnswers(answerArrays) {
     }
     counter++;
 
+}
+let blueAudioArr = getAudio("blue");
+
+//pause audio when it goes to another index/click 
+function playAudios(audioArrays) {
+
+    let audioURL,audio;
+
+    if (counter > 3) {
+        anContent.innerHTML = "It's time to move on to the next candidate"
+    } else {
+        audioURL = `../${audioArrays[index]}`
+        audio = new Audio(audioURL);
+        audio.play();
+        console.log(audio.paused)
+        scoreContent.textContent = `${(counter+1)}/4`;
+      
+
+    }
+    counter++;
+}
+
+
+function togglePause(myAudio) {
+    if (myAudio.paused && myAudio.currentTime > 0 && !myAudio.ended) {
+        myAudio.play();
+        console.log("why not working")
+    } else {
+        myAudio.pause();
+    }
 }
