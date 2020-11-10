@@ -259,6 +259,8 @@ function showAnswers(answerArrays) {
         scoreContent.textContent = `${(counter+1)}/4`;
 
     }
+    //one question can only count once - not based on click, but based on choice?
+    
     counter++;
 
 }
@@ -268,13 +270,12 @@ let blueAudioArr = getAudio("blue");
 function playAudios(audioArrays) {
 
     let audioURL,audio;
-
     if (counter > 3) {
         anContent.innerHTML = "It's time to move on to the next candidate"
     } else {
         audioURL = `../${audioArrays[index]}`
         audio = new Audio(audioURL);
-        audio.play();
+        audio.play();// another click will play audio on top of each other - how to solve it 
         console.log(audio.paused)
         scoreContent.textContent = `${(counter+1)}/4`;
       
