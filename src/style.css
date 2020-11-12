@@ -9,17 +9,24 @@ body {
     background-color: black;
     color: white;
     text-align: center;
+    font-family: 'Patua One', cursive;
+}
 
+button{
+    background-color: black;
+    color: white;
+    font-size: 1.2em;
 }
 
 #score {
     width: 100vw;
     text-align: center;
-    padding-top: 1vh;
-  background-color:tomato ;
+    padding-top: 0.5vh;
+    background-color:tomato;
     /* background-color: yellow; */
-    height: 1vh;
+    height: 3vh;
     color: white;
+    font-family: 'Patua One', cursive;
 }
 #answers{
   position: absolute;
@@ -36,6 +43,8 @@ body {
     justify-content: space-around;
     align-items: center;
     z-index: -100;
+    font-family: 'Patua One', cursive;
+
 }
 
 .ball {
@@ -56,13 +65,20 @@ body {
     background: linear-gradient(145deg, #4da7db, #5bc6ff);
     box-shadow: 5px 5px 64px #3c82aa,
         -5px -5px 64px #6ff1ff;
-
+    
 }
 
 #blue {
     background: linear-gradient(145deg, #4da7db, #5bc6ff);
     box-shadow: 5px 5px 64px #3c82aa,
         -5px -5px 64px #6ff1ff;
+    transition: box-shadow 0.5s;
+}
+
+#blue:hover{
+    box-shadow: 5px 5px 80px #204f6b,
+        -5px -5px 80px #49b7c4;
+    
 }
 
 #white {
@@ -70,6 +86,13 @@ body {
     background: linear-gradient(145deg, #e6e6e6, #ffffff);
     box-shadow: 5px 5px 64px #b3b3b3,
         -5px -5px 64px #ffffff;
+    transition: box-shadow 0.5s;
+}
+
+#white:hover{
+    box-shadow: 5px 5px 80px #535353,
+        -5px -5px 80px #999999;
+    
 }
 
 #green {
@@ -77,6 +100,13 @@ body {
     background: linear-gradient(145deg, #6dfbf2, #5cd4cb);
     box-shadow: 5px 5px 64px #5acfc7,
         -5px -5px 64px #72fffd;
+    transition: box-shadow 0.5s;
+}
+
+#green:hover{
+    box-shadow: 5px 5px 80px #33837d,
+        -5px -5px 80px #3d9796;
+    
 }
 
 #red {
@@ -84,6 +114,13 @@ body {
     background: linear-gradient(145deg, #e44343, #c03939);
     box-shadow: 5px 5px 64px #bb3737,
         -5px -5px 64px #ef4747;
+    transition: box-shadow 0.5s;
+}
+
+#red:hover{
+    box-shadow: 5px 5px 80px #6d1c1c,
+        -5px -5px 80px #7a1d1d;
+    
 }
 
 
@@ -91,20 +128,22 @@ body {
 
 #bottom {
     height: 20vh;
-    background-color: white;
+    background-color: black;
     width: 100vw;
     position: absolute;
+    bottom: 0;
     /* border: 1pt red dotted; */
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-
 }
 
 #leftBtn {
     grid-area: 1 / 1 / 2 / 2;
+    font-family: 'Patua One', cursive;
+    border-left: none;
 }
 
 #questions {
@@ -114,15 +153,21 @@ body {
 
 #qsContent{
     text-align: center;
-    color: black;
+    color: white;
     /* background-color: red; */
     margin: auto;
     width: 100%;
     height: 20vh;
     padding: 5vh 0;
     font-size: large;
+    font-family: 'Patua One', cursive;
 
+    border-left: none;
+    border-right: none;
 }
 #rightBtn {
     grid-area: 1 / 5 / 2 / 6;
+    font-family: 'Patua One', cursive;
+    border-right: none;
 }
+
