@@ -16,10 +16,7 @@ let green = document.getElementById("green");
 let red = document.getElementById("red");
 
 let state = "";
-let blueIndex = 0;
-let whiteIndex = 0;
-let greenIndex = 0;
-let redIndex = 0;
+let index = 0;
 
 function getQs(color) {
     let questionArr = [];
@@ -107,9 +104,9 @@ let redAnswerArr = getAns("red");
 
 // console.log(blueAnswerArr)
 
-qsContent.innerHTML = blueArr[blueIndex];
+qsContent.innerHTML = blueArr[index];
 
-function showRQs(questionsArray, index) {
+function showRQs(questionsArray) {
 
     if (index >= questionsArray.length - 1) {
         index = 0;
@@ -125,7 +122,7 @@ function showRQs(questionsArray, index) {
 }
 
 
-function showLQs(questionsArray, index) {
+function showLQs(questionsArray) {
 
     index--;
 
@@ -143,32 +140,32 @@ function showLQs(questionsArray, index) {
 rightBtn.addEventListener("click", function () {
 
     if (state == "blue") {
-        showRQs(blueArr, blueIndex)
+        showRQs(blueArr)
     }
     if (state == "white") {
-        showRQs(whiteArr, whiteIndex)
+        showRQs(whiteArr)
     }
     if (state == "green") {
-        showRQs(greenArr, greenIndex)
+        showRQs(greenArr)
     }
     if (state == "red") {
-        showRQs(redArr, redIndex)
+        showRQs(redArr)
     }
 
 })
 
 leftBtn.addEventListener("click", function () {
     if (state == "blue") {
-        showLQs(blueArr, blueIndex)
+        showLQs(blueArr)
     }
     if (state == "white") {
-        showLQs(whiteArr, whiteIndex)
+        showLQs(whiteArr)
     }
     if (state == "green") {
-        showLQs(greenArr, greenIndex)
+        showLQs(greenArr)
     }
     if (state == "red") {
-        showLQs(redArr, redIndex)
+        showLQs(redArr)
     }
 
 })
@@ -178,7 +175,7 @@ leftBtn.addEventListener("click", function () {
 blue.addEventListener("click", function () {
     state = "blue";
     counter = 0;
-    qsContent.innerHTML = blueArr[blueIndex];
+    qsContent.innerHTML = blueArr[index];
 
 })
 
@@ -186,7 +183,7 @@ blue.addEventListener("click", function () {
 red.addEventListener("click", function () {
     state = "red";
     counter = 0;
-    qsContent.innerHTML = redArr[redIndex];
+    qsContent.innerHTML = redArr[index];
 
 
 })
@@ -195,7 +192,7 @@ red.addEventListener("click", function () {
 white.addEventListener("click", function () {
     state = "white";
     counter = 0;
-    qsContent.innerHTML = whiteArr[whiteIndex];
+    qsContent.innerHTML = whiteArr[index];
 
 
 })
@@ -204,7 +201,7 @@ white.addEventListener("click", function () {
 green.addEventListener("click", function () {
     state = "green";
     counter = 0;
-    qsContent.innerHTML = redArr[redIndex];
+    qsContent.innerHTML = redArr[index];
 
 
 })
@@ -229,20 +226,20 @@ scoreContent.textContent = "0/4";
 
 qsContent.addEventListener("click", function () {
     if (state == "blue") {
-        showAnswers(blueAnswerArr, blueIndex);
-        //playAudios(blueAudioArr); //play the audio
+        showAnswers(blueAnswerArr);
+        playAudios(blueAudioArr); //play the audio
     }
 
     if (state == "white") {
-        showAnswers(whiteAnswerArr, whiteIndex);
+        showAnswers(whiteAnswerArr);
     }
 
     if (state == "green") {
-        showAnswers(greenAnswerArr, greenIndex);
+        showAnswers(greenAnswerArr);
     }
 
     if (state == "red") {
-        showAnswers(redAnswerArr, redIndex);
+        showAnswers(redAnswerArr);
     }
 });
 
@@ -251,20 +248,20 @@ qsContent.addEventListener("click", function () {
 //show intro information 
 //show outro information - gets to vote - two buttons - show different outcome 
 
-function showAnswers(answerArrays, index) {
+function showAnswers(answerArrays) {
 
-    if (index > 4) {
+    if (counter > 3) {
         anContent.innerHTML = "It's time to move on to the next candidate"
     } else {
         anContent.innerHTML = answerArrays[index];
         console.log("counter less than 4")
-        console.log("index in answers", index-1)
-        scoreContent.textContent = `${(index)}/4`;
+        console.log("index in answers", index)
+        scoreContent.textContent = `${(counter+1)}/4`;
 
     }
     //one question can only count once - not based on click, but based on choice?
     
-    index++;
+    counter++;
 
 }
 let blueAudioArr = getAudio("blue");
