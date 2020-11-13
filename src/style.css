@@ -22,34 +22,30 @@ p {
 #score {
     width: 100vw;
     text-align: center;
-    /* padding-top: 1vh; */
-    /* background-color:tomato ; */
-    /* background-color: yellow; */
-    height: 1vh;
+    height: 2vh;
     color: white;
-    padding-bottom: 2vh;
-    position: absolute; 
     bottom: 0;
-    /* position: relative; */
 }
 
 #answers {
-    position: absolute;
     width: 60vw;
+    position: relative;
     height: 15vh;
-    bottom: 5vh;
-
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
 
 }
 
 .wrapper {
     width: 100vw;
-    height: 20vh;
+    height: 50vh;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
-    z-index: 100;
+    /* z-index: 100; */
 
 
 }
@@ -59,7 +55,7 @@ p {
     height: 20vh;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 
 
@@ -107,10 +103,10 @@ p {
 /* get the grid: https://cssgrid-generator.netlify.app/  */
 #biggerWrapper {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     align-content: center;
-    /* align-items: center; */
-    justify-content: center;
+    align-items:center;
+    justify-content: space-evenly;
     position: absolute;
     height: 100vh;
     width: 100vw;

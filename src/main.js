@@ -212,7 +212,6 @@ let answers = document.getElementById("answers");
 let anContent = document.createElement("p");
 answers.appendChild(anContent);
 anContent.id = "anContent";
-answers.style.position = "absolute";
 
 let counter = 0;
 let score = document.getElementById("score");
