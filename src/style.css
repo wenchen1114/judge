@@ -114,14 +114,20 @@ p {
 
 #questionsButtons {
     height: 20vh;
-    background-color: white;
+    background-color: red;
     width: 100vw;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    background-origin: padding-box;
 
+}
+
+button{
+    background-color: lightgray;
+    color: black;
 }
 
 #leftBtn {
@@ -130,6 +136,7 @@ p {
 
 #questions {
     grid-area: 1 / 2 / 2 / 5;
+    background-color: gray;
 
 }
 

@@ -1,5 +1,9 @@
 // import jsonOBJ from './whitesnake.js';
 
+// Finished by Yiting on 11/12
+// 1. composition 
+// 2. collections of answers and questions
+
 import jsonOBJ from './whitesnakeAudio.js'
 
 //button click shows different stories 
@@ -106,19 +110,23 @@ let redAnswerArr = getAns("red");
 
 qsContent.innerHTML = blueArr[index];
 
+//collections will hold the questions and answers for each character 
+//user click on the name to see the full info 
+
+let colQs = [];
+let colAns = [];
+
 function showRQs(questionsArray) {
+    index++;
 
-    if (index >= questionsArray.length - 1) {
+    if (index > questionsArray.length - 1) {
         index = 0;
-    } else {
-        index++;
-
     }
     qsContent.innerHTML = questionsArray[index];
     console.log(questionsArray.length)
     console.log("right click ", index)
 
-
+    colQs.push(questionsArray[index]);
 }
 
 
@@ -133,6 +141,9 @@ function showLQs(questionsArray) {
 
     console.log(questionsArray.length)
     console.log("left click ", index);
+
+    colQs.push(questionsArray[index]);
+
 
 }
 
@@ -172,10 +183,16 @@ leftBtn.addEventListener("click", function () {
 
 
 
+let buttonBg = document.getElementsByTagName("button");
 blue.addEventListener("click", function () {
     state = "blue";
     counter = 0;
     qsContent.innerHTML = blueArr[index];
+    //change button bg color 
+    for (let i = 0; i < buttonBg.length; i++) {
+        buttonBg[i].style.backgroundColor = "#4da7db";
+
+    }
 
 })
 
@@ -185,6 +202,10 @@ red.addEventListener("click", function () {
     counter = 0;
     qsContent.innerHTML = redArr[index];
 
+    for (let i = 0; i < buttonBg.length; i++) {
+        buttonBg[i].style.backgroundColor = "#ef4747";
+
+    }
 
 })
 
@@ -194,6 +215,10 @@ white.addEventListener("click", function () {
     counter = 0;
     qsContent.innerHTML = whiteArr[index];
 
+    for (let i = 0; i < buttonBg.length; i++) {
+        buttonBg[i].style.backgroundColor = "#e6e6e6";
+
+    }
 
 })
 
@@ -204,6 +229,10 @@ green.addEventListener("click", function () {
     qsContent.innerHTML = redArr[index];
 
 
+    for (let i = 0; i < buttonBg.length; i++) {
+        buttonBg[i].style.backgroundColor = "#5acfc7";
+
+    }
 })
 
 //if qscontent is clicked, find the one it's selected and show the corresponding answers 
@@ -243,6 +272,32 @@ qsContent.addEventListener("click", function () {
 });
 
 
+//create popup - to be finished 
+function showCollections() {
+
+        let colQsText = document.createElement("h2");
+        colQsText.innerHTML = colQs[0];
+        let colAnsText = document.createElement("p")
+        colAnsText.innerHTML = colAns[0];
+        let colDiv = document.createElement("div");
+        colDiv.appendChild(colQsText);
+        colDiv.appendChild(colAnsText);
+
+        colDiv.id = "colDiv";
+        colDiv.style.backgroundColor="white";
+
+        console.log(colQsText, colAnsText);
+    
+}
+//hyperlink the character text to show the collections of information selected by the user
+let blueChar = document.getElementById("blueChar");
+
+showCollections();
+
+blueChar.addEventListener("click", function () {
+        showCollections();
+    
+});
 //change the state if the four for each character is finished 
 //show intro information 
 //show outro information - gets to vote - two buttons - show different outcome 
@@ -256,10 +311,10 @@ function showAnswers(answerArrays) {
         console.log("counter less than 4")
         console.log("index in answers", index)
         scoreContent.textContent = `${(counter+1)}/4`;
-
+        colAns.push(answerArrays[index]);
     }
     //one question can only count once - not based on click, but based on choice?
-    
+
     counter++;
 
 }
@@ -268,16 +323,16 @@ let blueAudioArr = getAudio("blue");
 //pause audio when it goes to another index/click 
 function playAudios(audioArrays) {
 
-    let audioURL,audio;
+    let audioURL, audio;
     if (counter > 3) {
         anContent.innerHTML = "It's time to move on to the next candidate"
     } else {
         audioURL = `../${audioArrays[index]}`
         audio = new Audio(audioURL);
-        audio.play();// another click will play audio on top of each other - how to solve it 
+        audio.play(); // another click will play audio on top of each other - how to solve it 
         console.log(audio.paused)
         scoreContent.textContent = `${(counter+1)}/4`;
-      
+
     }
     counter++;
 }
@@ -293,7 +348,7 @@ function togglePause(myAudio) {
 }
 
 
-//add audio
-//dim the light 
-//voting part - two buttons - show up different result 
-//intro
+//add audio - Yiting 
+//dim the light - Yiting 
+//voting part - two buttons - show up different result - Yiting 
+//intro - Wen 
