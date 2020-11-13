@@ -9,6 +9,21 @@
     <link href="assets/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
 
+
+<!-- 
+feedbacks 
+- composition of the layout of the format 
+- audio and text should be slightly differnt or engaging - or audio should be very abstract? 
+- fixing the audio problem 
+- choice of color, font 
+- how to keep track of what choices users made 
+- how to make the buttons of selections characteristic
+- how to get back to see what you know about the characters? through questions? 
+
+
+
+-->
+
 <body>
 
 
@@ -21,53 +36,75 @@
 
     <!-- top bar -->
 
-    <div id="score">
-    </div>
 
-    <div id="answers">
-    </div>
+    <!-- <div style="position:absolute;top:15vh;text-align:center;width:80vw;padding-left: 10vw;">
+        <h2>intro</h2>
+        <p>
+            It was reported that the innocent creatures in the Golden Temple were killed by an unnatural flood,
+            allegedly caused by Miss White.
+            <p>
+                You are the judge. You will hear stories from four characters and you are to judge who is guilty. You
+                are deciding if Miss White or The Monk is guilty of the charge.
+            </p>
+            <p>
+                Click on the color circle, to hear their stories.
+            </p>
+    </div> -->
+
+
+
 
     <!-- create four divs of four circles  -->
 
-    <div class="wrapper">
-        <!-- <p>browser focused white snake story</p> -->
-        <div class="ball">
-            <div id="blue"></div>
-            <p>blue</p>
-        </div>
-        <div class="ball">
-            <div id="white"></div>
-            <p>white</p>
+    <div id="biggerWrapper">
+        <div class="wrapper">
+            <!-- <p>browser focused white snake story</p> -->
+            <div class="ball">
+                <div id="blue"></div>
+                <p>Xu Xian</p>
+                <!-- add one line for each characters experience  -->
+            </div>
+            <div class="ball">
+                <div id="white"></div>
+                <p>Miss White</p>
 
-        </div>
-        <div class="ball">
-            <div id="green"></div>
-            <p>green</p>
+            </div>
+            <div class="ball">
+                <div id="green"></div>
+                <p>Miss Teal</p>
 
-        </div>
-        <div class="ball">
-            <div id="red"></div>
-            <p>red</p>
+            </div>
+            <div class="ball">
+                <div id="red"></div>
+                <p>The Monk</p>
 
+            </div>
+        </div>
+
+        <!-- button selections  -->
+        <div id="questionsButtons">
+
+            <button id="rightBtn">Next</button>
+            <button id="leftBtn">Previous</button>
+            <div id="questions">
+
+            </div>
+        </div>
+
+        <div id="answers">
+        </div>
+
+        <div id="score">
         </div>
     </div>
 
-    <!-- button selections  -->
-    <div id="bottom">
-
-        <button id="rightBtn">right</button>
-        <button id="leftBtn">left</button>
-        <div id="questions">
-
-        </div>
-    </div>
 
     <!-- end scene  -->
     <div></div>
 
-    <script type="module"src="src/whitesnakeAudio.js"></script>
+    <script type="module" src="src/whitesnakeAudio.js"></script>
     <!-- <script type="module"src="src/whitesnake.js"></script> -->
-    <script type="module"src="src/main.js"></script>
+    <script type="module" src="src/main.js"></script>
 
 </body>
 

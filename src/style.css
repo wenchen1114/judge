@@ -1,41 +1,57 @@
 * {
     margin: 0;
-    wrapper: 0;
+    padding: 0;
 
 }
 
-body {
+body,
+html {
     overflow: hidden;
     background-color: black;
     color: white;
     text-align: center;
+    height: 100vh;
+    width: 100vw;
 
+}
+
+p {
+    font-size: x-large;
 }
 
 #score {
     width: 100vw;
     text-align: center;
-    padding-top: 1vh;
-  background-color:tomato ;
+    /* padding-top: 1vh; */
+    /* background-color:tomato ; */
     /* background-color: yellow; */
     height: 1vh;
     color: white;
+    padding-bottom: 2vh;
+    position: absolute; 
+    bottom: 0;
+    /* position: relative; */
 }
-#answers{
-  position: absolute;
-  width: 100vw;
-  height: 8vh;
-  padding-top: 1vh;
+
+#answers {
+    position: absolute;
+    width: 60vw;
+    height: 15vh;
+    bottom: 5vh;
+
 
 }
+
 .wrapper {
     width: 100vw;
-    height: 70vh;
+    height: 20vh;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
-    z-index: -100;
+    z-index: 100;
+
+
 }
 
 .ball {
@@ -45,6 +61,7 @@ body {
     flex-flow: column nowrap;
     justify-content: space-evenly;
     align-items: center;
+
 
 }
 
@@ -88,13 +105,21 @@ body {
 
 
 /* get the grid: https://cssgrid-generator.netlify.app/  */
+#biggerWrapper {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    /* align-items: center; */
+    justify-content: center;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+}
 
-#bottom {
+#questionsButtons {
     height: 20vh;
     background-color: white;
     width: 100vw;
-    position: absolute;
-    /* border: 1pt red dotted; */
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr;
@@ -112,7 +137,7 @@ body {
 
 }
 
-#qsContent{
+#qsContent {
     text-align: center;
     color: black;
     /* background-color: red; */
@@ -123,6 +148,7 @@ body {
     font-size: large;
 
 }
+
 #rightBtn {
     grid-area: 1 / 5 / 2 / 6;
 }
