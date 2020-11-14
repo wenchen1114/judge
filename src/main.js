@@ -279,7 +279,6 @@ function playAudios(audioArrays) {
         console.log(audio.paused)
         scoreContent.textContent = `${(counter+1)}/4`;
       
-
     }
     counter++;
 }
@@ -293,3 +292,9 @@ function togglePause(myAudio) {
         myAudio.pause();
     }
 }
+
+
+//add audio
+//dim the light 
+//voting part - two buttons - show up different result 
+//intro
