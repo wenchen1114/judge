@@ -24,7 +24,13 @@
 // 2. better UI for selections prior to judge 
 // 3. database edits done
 // 4. fixed audio - declared audio outside of the function so it will replace the src 
-// 5. added more ui for smoother TransitionEvent
+// 5. added more ui for smoother transition 
+
+
+// to do 
+// 11/16 night 
+// 1. voice over recording 
+// 2. four small circles 
 
 
 import jsonOBJ from './whitesnakeAudio.js'
