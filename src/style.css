@@ -48,10 +48,8 @@ h2{
     position: absolute;
     /* display: flex; */
     flex-flow: column nowrap;
-    background-color: gray;
-
     justify-content: center;
-    /* align-items: center; */
+   z-index: 10;
 
 }
 .close{
@@ -108,6 +106,19 @@ h2{
         -5px -5px 64px #ffffff;
 }
 
+
+
+#whiteChar:hover,#redChar:hover,#greenChar:hover,#blueChar:hover{
+    cursor: pointer;
+    text-decoration-line: line-through;
+}
+#whiteChar:visited,#redChar:visited,#greenChar:visited,#blueChar:visited{
+    cursor: pointer;
+    opacity: 0.5;
+    color: #00FF00;    
+    text-decoration-line: none;
+
+}
 #green {
 
     background: linear-gradient(145deg, #6dfbf2, #5cd4cb);
@@ -121,6 +132,33 @@ h2{
     box-shadow: 5px 5px 64px #bb3737,
         -5px -5px 64px #ef4747;
 }
+
+#bluePopUp{
+    color: white;
+    background-color: #3c82aa;
+
+}
+
+
+#whitePopUp{
+    color: black;
+    background-color: #b3b3b3;
+
+}
+
+
+#redPopUp{
+    color: white;
+    background-color: #bb3737;
+
+}
+
+#greenPopUp{
+    color: black;
+    background-color: #5acfc7;
+
+}
+
 
 button{
     background-color: white;

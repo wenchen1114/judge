@@ -353,10 +353,10 @@ qsContent.addEventListener("click", function () {
 });
 
 let whiteBtn = document.getElementById("whiteBtn");
-let whiteBtnChar = document.getElementById("whiteBtnChar");
+// let whiteBtnChar = document.getElementById("whiteBtnChar");
 
 let redBtn = document.getElementById("redBtn");
-let redBtnChar = document.getElementById("redBtnChar");
+// let redBtnChar = document.getElementById("redBtnChar");
 
 let resultforWhite = document.getElementById("resultforWhite");
 let resultforRed = document.getElementById("resultforRed");
@@ -433,16 +433,16 @@ blunt.addEventListener("click", function () {
 let allInfo = document.getElementById("allInfo");
 
 function showEnding(stateCounter) {
-
     //if there are four times of the DONE, then show the END 
     //you can change the number to 1 for debugging, change back to 4 when you are done 
-    if (stateCounter == 4) {
+    if (stateCounter == 1) {
         allInfo.style.display = "block";
         console.log('stateCounter in showending', stateCounter)
     }
 }
 
-allInfo.addEventListener("click", function () {
+let ready=document.getElementById("ready");
+ready.addEventListener("click", function () {
     intro.style.display = "none";
     mid.style.display = "none";
     end.style.display = "block";
