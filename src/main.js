@@ -131,22 +131,26 @@ qsContent.innerHTML = blueArr[index];
 let colQs = [];
 let colAns = [];
 
+//why do you have to click the right button and then select the question to make sure they appear in order? 
+
 function showRQs(questionsArray) {
-    index++;
+
+    colQs.push(questionsArray[index]);
 
     if (index > questionsArray.length - 1) {
         index = 0;
     }
+    index++;
     qsContent.innerHTML = questionsArray[index];
-    console.log("right click ", index)
 
-    colQs.push(questionsArray[index]);
 }
 
+//when i click the charatcer name, should show the corresponding lists 
 
 function showLQs(questionsArray) {
 
-    index--;
+    colQs.push(questionsArray[index]);
+
 
     if (index < 0) {
         index = questionsArray.length - 1;
@@ -156,8 +160,7 @@ function showLQs(questionsArray) {
     console.log(questionsArray.length)
     console.log("left click ", index);
 
-    colQs.push(questionsArray[index]);
-
+    index--;
 
 }
 
@@ -200,29 +203,38 @@ leftBtn.addEventListener("click", function () {
 let buttonBg = document.getElementsByTagName("button");
 blue.addEventListener("click", function () {
     index = 0;
-
     state = "blue";
     counter = 0;
+    blueList.innerHTML = ""
+
     qsContent.innerHTML = blueArr[index];
     //change button bg color 
     for (let i = 0; i < buttonBg.length; i++) {
         buttonBg[i].style.backgroundColor = "#4da7db";
 
     }
+    disableBtn(blue);
 
 })
 
+function disableBtn(btn) {
+    document.getElementById(btn.id).disabled = true;
+    console.log(`${btn} disabled`);
+}
 
 red.addEventListener("click", function () {
     index = 0;
     state = "red";
     counter = 0;
     qsContent.innerHTML = redArr[index];
+    redList.innerHTML = ""
 
     for (let i = 0; i < buttonBg.length; i++) {
         buttonBg[i].style.backgroundColor = "#ef4747";
 
     }
+
+    disableBtn(red);
 
 })
 
@@ -232,18 +244,20 @@ white.addEventListener("click", function () {
     state = "white";
     counter = 0;
     qsContent.innerHTML = whiteArr[index];
+    whiteList.innerHTML = ""
 
     for (let i = 0; i < buttonBg.length; i++) {
         buttonBg[i].style.backgroundColor = "#e6e6e6";
 
     }
+    disableBtn(white);
 
 })
 
 
 green.addEventListener("click", function () {
     index = 0;
-
+    greenList.innerHTML = ""
     state = "green";
     counter = 0;
     qsContent.innerHTML = redArr[index];
@@ -253,6 +267,8 @@ green.addEventListener("click", function () {
         buttonBg[i].style.backgroundColor = "#5acfc7";
 
     }
+    disableBtn(green);
+
 })
 
 //if qscontent is clicked, find the one it's selected and show the corresponding answers 
@@ -276,7 +292,7 @@ qsContent.addEventListener("click", function () {
         //should incorporate audio and answer together later 
 
         showAnswers(blueAnswerArr, index, blue);
-        console.log(stateCounter);
+        // console.log(stateCounter);
         showEnding(stateCounter);
         // playAudios(blueAudioArr); //play the audio
     }
@@ -385,61 +401,143 @@ blunt.addEventListener("click", function () {
 
 });
 
+let allInfo = document.getElementById("allInfo");
+
 function showEnding(stateCounter) {
 
     //if there are four times of the DONE, then show the END 
     //you can change the number to 1 for debugging, change back to 4 when you are done 
     if (stateCounter == 4) {
-        intro.style.display = "none";
-        mid.style.display = "none";
-        end.style.display = "block";
+        allInfo.style.display = "block";
         console.log('stateCounter in showending', stateCounter)
-
     }
 }
 
+allInfo.addEventListener("click", function () {
+    intro.style.display = "none";
+    mid.style.display = "none";
+    end.style.display = "block";
+})
+
+let popup = document.getElementById("pop-up");
+let bluePopUp = document.getElementById("bluePopUp");
+let whitePopUp = document.getElementById("whitePopUp");
+let greenPopUp = document.getElementById("greenPopUp");
+let redPopUp = document.getElementById("redPopUp");
+let blueList = document.getElementById("blueList");
+let whiteList = document.getElementById("whiteList");
+let redList = document.getElementById("redList");
+let greenList = document.getElementById("greenList");
 
 
 //create popup - to be finished - started on 11/10 
-function showCollections() {
+function showCollections(colPopUp, colClose, colList) {
+    colList.innerHTML = "";
 
     for (let i = 0; i < 4; i++) {
 
         let colQsText = document.createElement("h2");
         colQsText.innerHTML = colQs[i];
-        let colAnsText = document.createElement("p")
+        let colAnsText = document.createElement("p");
         colAnsText.innerHTML = colAns[i];
-        // colQs.appendChild(colAns);
-        let colDiv = document.createElement("div");
-        // let listItems = document.createElement("ul");
-        // colDiv.append(listItems);
 
+        colPopUp.style.display = "flex";
+        colClose.style.display = "flex";
 
-        // listItems.innerHTML += `
-        // <ul>
-        //     <li>${colQsText}</li>
-        //     <li>${colAnsText}</li>
-        //  </ul>`
+        colList.innerHTML += `
+       
+            <li>
+           <h2> ${colQsText.innerHTML}</h2>
+           <p>${colAnsText.innerHTML}</p>
+            </li>
+            <br>
+         
+            `
+        colPopUp.appendChild(colList);
 
-        // colDiv.appendChild(colQsText);
-        // colDiv.appendChild(colAnsText);
-
-        // colDiv.id = "colDiv";
-        // colDiv.style.color = "white";
-        // colAnsText.style.color="white";
-
-        console.log(colQsText, colAnsText);
-        // let blueSection = document.getElementById("blueSection");
+        console.log("colList", colList);
 
 
     }
 }
+
+let blueClose = document.getElementById("blueClose");
+blueClose.addEventListener("click", function () {
+
+    bluePopUp.style.display = "none";
+    blueClose.style.display = "none";
+})
+
+let redClose = document.getElementById("redClose");
+redClose.addEventListener("click", function () {
+
+    redPopUp.style.display = "none";
+    redClose.style.display = "none";
+})
+
+let greenClose = document.getElementById("greenClose");
+greenClose.addEventListener("click", function () {
+
+    greenPopUp.style.display = "none";
+    greenClose.style.display = "none";
+})
+
+let whiteClose = document.getElementById("whiteClose");
+whiteClose.addEventListener("click", function () {
+
+    whitePopUp.style.display = "none";
+    whiteClose.style.display = "none";
+})
+
+
+// popup.addEventListener("click", function(){
+
+//     popup.style.display="none";
+// })
+
+
 //hyperlink the character text to show the collections of information selected by the user
 let blueChar = document.getElementById("blueChar");
+let redChar = document.getElementById("redChar");
+let whiteChar = document.getElementById("whiteChar");
+let greenChar = document.getElementById("greenChar");
 
+//try to store the stuff into individual array to show and clear when restart
+
+redChar.addEventListener("click", function () {
+    disableBtn(redChar);
+
+    redList.innerHTML = ""; //reset 
+    showCollections(redPopUp, redClose, redList);
+
+    //  colQs=[];
+    //     colAns=[];
+});
+greenChar.addEventListener("click", function () {
+    disableBtn(greenChar);
+
+    greenList.innerHTML = ""; //reset 
+    showCollections(greenPopUp, greenClose, greenList);
+    // colQs=[];
+    //     colAns=[];
+
+});
+whiteChar.addEventListener("click", function () {
+
+    disableBtn(whiteChar);
+    whiteList.innerHTML = ""; //reset 
+    showCollections(whitePopUp, whiteClose, whiteList);
+    //    colQs=[];
+    //     colAns=[];
+});
 
 blueChar.addEventListener("click", function () {
-    showCollections();
+
+    disableBtn(blueChar);
+    blueList.innerHTML = ""; //reset 
+    showCollections(bluePopUp, blueClose, blueList);
+    //   colQs=[];
+    //     colAns=[];
 
 });
 
@@ -460,8 +558,6 @@ function showAnswers(answerArrays, index, col) {
         if (state == "done") {
             stateCounter++;
         }
-
-
         console.log(stateCounter, 'stateCounter');
         return stateCounter;
 
@@ -472,9 +568,9 @@ function showAnswers(answerArrays, index, col) {
         lastIndex = index;
         scoreContent.textContent = `${(index+1)}/4`;
         colAns.push(answerArrays[index]);
-        console.log("counter", counter);
-    }
 
+    }
+    console.log("answers", anContent.innerHTML);
 
 
 }
