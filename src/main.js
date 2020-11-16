@@ -108,7 +108,7 @@ let redAnswerArr = getAns("red");
 
 // console.log(blueAnswerArr)
 
-qsContent.innerHTML = blueArr[index];
+qsContent.innerHTML = "Choose one character to listen to their testimonies";
 
 //collections will hold the questions and answers for each character 
 //user click on the name to see the full info 
@@ -186,34 +186,40 @@ leftBtn.addEventListener("click", function () {
 let buttonBg = document.getElementsByTagName("button");
 blue.addEventListener("click", function () {
     state = "blue";
-    counter = 0;
     qsContent.innerHTML = blueArr[index];
+<<<<<<< Updated upstream
     //change button bg color 
     for (let i = 0; i < buttonBg.length; i++) {
         buttonBg[i].style.backgroundColor = "#4da7db";
 
     }
 
+=======
+    scoreContent.textContent = `${(blueCounter)}/4`;
+>>>>>>> Stashed changes
 })
 
 
 red.addEventListener("click", function () {
     state = "red";
-    counter = 0;
     qsContent.innerHTML = redArr[index];
+<<<<<<< Updated upstream
 
     for (let i = 0; i < buttonBg.length; i++) {
         buttonBg[i].style.backgroundColor = "#ef4747";
 
     }
+=======
+    scoreContent.textContent = `${(redCounter)}/4`;
+>>>>>>> Stashed changes
 
 })
 
 
 white.addEventListener("click", function () {
     state = "white";
-    counter = 0;
     qsContent.innerHTML = whiteArr[index];
+    scoreContent.textContent = `${(whiteCounter)}/4`;
 
     for (let i = 0; i < buttonBg.length; i++) {
         buttonBg[i].style.backgroundColor = "#e6e6e6";
@@ -225,8 +231,8 @@ white.addEventListener("click", function () {
 
 green.addEventListener("click", function () {
     state = "green";
-    counter = 0;
     qsContent.innerHTML = redArr[index];
+    scoreContent.textContent = `${(greenCounter)}/4`;
 
 
     for (let i = 0; i < buttonBg.length; i++) {
@@ -242,7 +248,10 @@ let anContent = document.createElement("p");
 answers.appendChild(anContent);
 anContent.id = "anContent";
 
-let counter = 0;
+let blueCounter = 0;
+let redCounter = 0;
+let greenCounter = 0;
+let whiteCounter = 0;
 let score = document.getElementById("score");
 let scoreContent = document.createElement("p");
 score.appendChild(scoreContent)
@@ -254,20 +263,32 @@ scoreContent.textContent = "0/4";
 
 qsContent.addEventListener("click", function () {
     if (state == "blue") {
-        showAnswers(blueAnswerArr);
-        playAudios(blueAudioArr); //play the audio
+        showAnswers(blueAnswerArr, blueCounter);
+        playAudios(blueAudioArr, blueCounter); //play the audio
+        if(blueCounter<4){
+        blueCounter ++;
+        }
     }
 
     if (state == "white") {
-        showAnswers(whiteAnswerArr);
+        showAnswers(whiteAnswerArr, whiteCounter);
+        if(whiteCounter<4){
+        whiteCounter++;
+        }
     }
 
     if (state == "green") {
-        showAnswers(greenAnswerArr);
+        showAnswers(greenAnswerArr, greenCounter);
+        if(greenCounter<4){
+        greenCounter++;
+        }
     }
 
     if (state == "red") {
-        showAnswers(redAnswerArr);
+        showAnswers(redAnswerArr, redCounter);
+        if(redCounter<4){
+        redCounter++;
+        }
     }
 });
 
@@ -302,8 +323,7 @@ blueChar.addEventListener("click", function () {
 //show intro information 
 //show outro information - gets to vote - two buttons - show different outcome 
 
-function showAnswers(answerArrays) {
-
+function showAnswers(answerArrays, counter) {
     if (counter > 3) {
         anContent.innerHTML = "It's time to move on to the next candidate"
     } else {
@@ -311,17 +331,22 @@ function showAnswers(answerArrays) {
         console.log("counter less than 4")
         console.log("index in answers", index)
         scoreContent.textContent = `${(counter+1)}/4`;
+<<<<<<< Updated upstream
         colAns.push(answerArrays[index]);
     }
     //one question can only count once - not based on click, but based on choice?
 
     counter++;
 
+=======
+    }
+    //one question can only count once - not based on click, but based on choice?
+>>>>>>> Stashed changes
 }
 let blueAudioArr = getAudio("blue");
 
 //pause audio when it goes to another index/click 
-function playAudios(audioArrays) {
+function playAudios(audioArrays, counter) {
 
     let audioURL, audio;
     if (counter > 3) {
@@ -331,8 +356,13 @@ function playAudios(audioArrays) {
         audio = new Audio(audioURL);
         audio.play(); // another click will play audio on top of each other - how to solve it 
         console.log(audio.paused)
+<<<<<<< Updated upstream
         scoreContent.textContent = `${(counter+1)}/4`;
 
+=======
+        //scoreContent.textContent = `${(counter+1)}/4`;
+      
+>>>>>>> Stashed changes
     }
     counter++;
 }
