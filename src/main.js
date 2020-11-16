@@ -187,31 +187,14 @@ let buttonBg = document.getElementsByTagName("button");
 blue.addEventListener("click", function () {
     state = "blue";
     qsContent.innerHTML = blueArr[index];
-<<<<<<< Updated upstream
-    //change button bg color 
-    for (let i = 0; i < buttonBg.length; i++) {
-        buttonBg[i].style.backgroundColor = "#4da7db";
-
-    }
-
-=======
     scoreContent.textContent = `${(blueCounter)}/4`;
->>>>>>> Stashed changes
 })
 
 
 red.addEventListener("click", function () {
     state = "red";
     qsContent.innerHTML = redArr[index];
-<<<<<<< Updated upstream
-
-    for (let i = 0; i < buttonBg.length; i++) {
-        buttonBg[i].style.backgroundColor = "#ef4747";
-
-    }
-=======
     scoreContent.textContent = `${(redCounter)}/4`;
->>>>>>> Stashed changes
 
 })
 
@@ -331,17 +314,8 @@ function showAnswers(answerArrays, counter) {
         console.log("counter less than 4")
         console.log("index in answers", index)
         scoreContent.textContent = `${(counter+1)}/4`;
-<<<<<<< Updated upstream
-        colAns.push(answerArrays[index]);
     }
     //one question can only count once - not based on click, but based on choice?
-
-    counter++;
-
-=======
-    }
-    //one question can only count once - not based on click, but based on choice?
->>>>>>> Stashed changes
 }
 let blueAudioArr = getAudio("blue");
 
@@ -356,13 +330,8 @@ function playAudios(audioArrays, counter) {
         audio = new Audio(audioURL);
         audio.play(); // another click will play audio on top of each other - how to solve it 
         console.log(audio.paused)
-<<<<<<< Updated upstream
-        scoreContent.textContent = `${(counter+1)}/4`;
-
-=======
         //scoreContent.textContent = `${(counter+1)}/4`;
       
->>>>>>> Stashed changes
     }
     counter++;
 }

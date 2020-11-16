@@ -24,14 +24,10 @@ p {
     text-align: center;
     height: 2vh;
     color: white;
-<<<<<<< Updated upstream
-    bottom: 0;
-=======
     padding-bottom: 2vh;
     position: absolute; 
     bottom: 20px;
     /* position: relative; */
->>>>>>> Stashed changes
 }
 
 #answers {
@@ -47,20 +43,11 @@ p {
 
 .wrapper {
     width: 100vw;
-<<<<<<< Updated upstream
-    height: 50vh;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
-    /* z-index: 100; */
-=======
     height: 30vh;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     z-index: 100;
->>>>>>> Stashed changes
 
 
 }
@@ -128,12 +115,7 @@ p {
 }
 
 #questionsButtons {
-<<<<<<< Updated upstream
-    height: 20vh;
-    background-color: red;
-=======
     height: 10vh;
->>>>>>> Stashed changes
     width: 100vw;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -145,16 +127,11 @@ p {
 }
 
 button{
-<<<<<<< Updated upstream
-    background-color: lightgray;
-    color: black;
-=======
     background-color: black;
     color:white;
     border: none;
     font-size: 1.2em;
     font-family: 'Averia Serif Libre', cursive;
->>>>>>> Stashed changes
 }
 
 #leftBtn {
@@ -164,12 +141,8 @@ button{
 
 #questions {
     grid-area: 1 / 2 / 2 / 5;
-<<<<<<< Updated upstream
-    background-color: gray;
-=======
     border-left: 1px solid white;
     border-right: 1px solid white;
->>>>>>> Stashed changes
 
 }
 
