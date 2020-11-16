@@ -18,6 +18,13 @@
 // 3. database edits 
 // 4. voice over 
 
+
+
+//finished on 11/16 
+// 1. save collections for each character in separate arrays
+// 2. better UI for selections prior to judge 
+// 3. database edits done
+
 import jsonOBJ from './whitesnakeAudio.js'
 
 //button click shows different stories 
@@ -121,21 +128,30 @@ let whiteAnswerArr = getAns("white");
 let greenAnswerArr = getAns("green");
 let redAnswerArr = getAns("red");
 
-// console.log(blueAnswerArr)
-
 qsContent.innerHTML = blueArr[index];
 
 //collections will hold the questions and answers for each character 
 //user click on the name to see the full info 
 
-let colQs = [];
-let colAns = [];
 
 //why do you have to click the right button and then select the question to make sure they appear in order? 
 
 function showRQs(questionsArray) {
 
-    colQs.push(questionsArray[index]);
+    // colQs.push(questionsArray[index]);
+
+    if(questionsArray=blueArr){
+        blueColQs.push(questionsArray[index]);
+    }
+    if(questionsArray=redArr){
+        redColQs.push(questionsArray[index]);
+    }
+    if(questionsArray=whiteArr){
+        whiteColQs.push(questionsArray[index]);
+    }
+    if(questionsArray=greenArr){
+        greenColQs.push(questionsArray[index]);
+    }
 
     if (index > questionsArray.length - 1) {
         index = 0;
@@ -149,8 +165,20 @@ function showRQs(questionsArray) {
 
 function showLQs(questionsArray) {
 
-    colQs.push(questionsArray[index]);
+    // colQs.push(questionsArray[index]);
 
+    if(questionsArray=blueArr){
+        blueColQs.push(questionsArray[index]);
+    }
+    if(questionsArray=redArr){
+        redColQs.push(questionsArray[index]);
+    }
+    if(questionsArray=whiteArr){
+        whiteColQs.push(questionsArray[index]);
+    }
+    if(questionsArray=greenArr){
+        greenColQs.push(questionsArray[index]);
+    }
 
     if (index < 0) {
         index = questionsArray.length - 1;
@@ -288,9 +316,10 @@ scoreContent.textContent = "0/4";
 
 //get the index - select the correponding answers 
 qsContent.addEventListener("click", function () {
+   
     if (state == "blue") {
         //should incorporate audio and answer together later 
-
+     
         showAnswers(blueAnswerArr, index, blue);
         // console.log(stateCounter);
         showEnding(stateCounter);
@@ -429,17 +458,25 @@ let whiteList = document.getElementById("whiteList");
 let redList = document.getElementById("redList");
 let greenList = document.getElementById("greenList");
 
+let blueColAns=[];
+let blueColQs=[];
+let redColAns=[];
+let redColQs=[];
+let whiteColAns=[];
+let whiteColQs=[];
+let greenColAns=[];
+let greenColQs=[];
 
 //create popup - to be finished - started on 11/10 
-function showCollections(colPopUp, colClose, colList) {
+function showCollections(colPopUp, colClose, colList,colorQs, colorAns) {
     colList.innerHTML = "";
 
     for (let i = 0; i < 4; i++) {
 
         let colQsText = document.createElement("h2");
-        colQsText.innerHTML = colQs[i];
+        colQsText.innerHTML = colorQs[i];
         let colAnsText = document.createElement("p");
-        colAnsText.innerHTML = colAns[i];
+        colAnsText.innerHTML = colorAns[i];
 
         colPopUp.style.display = "flex";
         colClose.style.display = "flex";
@@ -508,7 +545,7 @@ redChar.addEventListener("click", function () {
     disableBtn(redChar);
 
     redList.innerHTML = ""; //reset 
-    showCollections(redPopUp, redClose, redList);
+    showCollections(redPopUp, redClose, redList,redColQs,redColAns);
 
     //  colQs=[];
     //     colAns=[];
@@ -517,27 +554,23 @@ greenChar.addEventListener("click", function () {
     disableBtn(greenChar);
 
     greenList.innerHTML = ""; //reset 
-    showCollections(greenPopUp, greenClose, greenList);
+    showCollections(greenPopUp, greenClose, greenList,greenColQs,greenColAns);
     // colQs=[];
     //     colAns=[];
 
 });
 whiteChar.addEventListener("click", function () {
 
-    disableBtn(whiteChar);
-    whiteList.innerHTML = ""; //reset 
-    showCollections(whitePopUp, whiteClose, whiteList);
-    //    colQs=[];
-    //     colAns=[];
+    // disableBtn(whiteChar);
+    // whiteList.innerHTML = ""; //reset 
+    showCollections(whitePopUp, whiteClose, whiteList,whiteColQs,whiteColAns);
 });
 
 blueChar.addEventListener("click", function () {
 
     disableBtn(blueChar);
     blueList.innerHTML = ""; //reset 
-    showCollections(bluePopUp, blueClose, blueList);
-    //   colQs=[];
-    //     colAns=[];
+    showCollections(bluePopUp, blueClose, blueList,blueColQs,blueColAns);
 
 });
 
@@ -567,10 +600,28 @@ function showAnswers(answerArrays, index, col) {
         console.log("index in answers", index)
         lastIndex = index;
         scoreContent.textContent = `${(index+1)}/4`;
-        colAns.push(answerArrays[index]);
+        // colAns.push(answerArrays[index]);
+
+        if(answerArrays=whiteAnswerArr){
+            whiteColAns.push(answerArrays[index]);
+
+        }
+        if(answerArrays=redAnswerArr){
+            redColAns.push(answerArrays[index]);
+
+        }
+        if(answerArrays=greenAnswerArr){
+            greenColAns.push(answerArrays[index]);
+
+        }
+        if(answerArrays=blueAnswerArr){
+            blueColAns.push(answerArrays[index]);
+
+        }
 
     }
-    console.log("answers", anContent.innerHTML);
+    // console.log("answers", anContent.innerHTML);
+    console.log("whitecolsAns",whiteColAns);
 
 
 }
