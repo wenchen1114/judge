@@ -4,6 +4,20 @@
 // 1. composition 
 // 2. collections of answers and questions
 
+
+// Finished by Yiting on 11/15
+// 1. index 
+// 2. 3 phrases UI 
+// 3. dim the light
+// 4. smooth transition from 16 selections to the end 
+
+
+// to be finished on 11/16 
+// 1. audio overlap issue 
+// 2. 0/4 become four tiny circles 
+// 3. database edits 
+// 4. voice over 
+
 import jsonOBJ from './whitesnakeAudio.js'
 
 //button click shows different stories 
@@ -21,7 +35,7 @@ let red = document.getElementById("red");
 
 let state = "";
 let index = 0;
-let stateCounter =0;
+let stateCounter = 0;
 
 function getQs(color) {
     let questionArr = [];
@@ -124,7 +138,6 @@ function showRQs(questionsArray) {
         index = 0;
     }
     qsContent.innerHTML = questionsArray[index];
-    // console.log(questionsArray.length)
     console.log("right click ", index)
 
     colQs.push(questionsArray[index]);
@@ -186,7 +199,7 @@ leftBtn.addEventListener("click", function () {
 
 let buttonBg = document.getElementsByTagName("button");
 blue.addEventListener("click", function () {
-    index=0;
+    index = 0;
 
     state = "blue";
     counter = 0;
@@ -201,7 +214,7 @@ blue.addEventListener("click", function () {
 
 
 red.addEventListener("click", function () {
-    index=0;
+    index = 0;
     state = "red";
     counter = 0;
     qsContent.innerHTML = redArr[index];
@@ -215,7 +228,7 @@ red.addEventListener("click", function () {
 
 
 white.addEventListener("click", function () {
-    index=0;
+    index = 0;
     state = "white";
     counter = 0;
     qsContent.innerHTML = whiteArr[index];
@@ -229,7 +242,7 @@ white.addEventListener("click", function () {
 
 
 green.addEventListener("click", function () {
-    index=0;
+    index = 0;
 
     state = "green";
     counter = 0;
@@ -256,25 +269,21 @@ score.appendChild(scoreContent)
 scoreContent.style.textAlign = "center";
 scoreContent.textContent = "0/4";
 
-// let blueIndex = 0;
 
 //get the index - select the correponding answers 
 qsContent.addEventListener("click", function () {
     if (state == "blue") {
         //should incorporate audio and answer together later 
-        //focus on counting individual indexs first 
-        // let blueIndex=0;
 
         showAnswers(blueAnswerArr, index, blue);
-        console.log( stateCounter);
+        console.log(stateCounter);
         showEnding(stateCounter);
-
         // playAudios(blueAudioArr); //play the audio
     }
 
     if (state == "white") {
         showAnswers(whiteAnswerArr, index, white);
-        console.log( stateCounter);
+        console.log(stateCounter);
         showEnding(stateCounter);
 
 
@@ -309,7 +318,7 @@ let resultforRed = document.getElementById("resultforRed");
 let resultforBlue = document.getElementById("resultforBlue");
 
 let gotoEnd = document.getElementById("gotoEnd");
-let gotoStart = document.getElementById("gotoStart");
+// let gotoStart = document.getElementById("gotoStart");
 let end = document.getElementById("end");
 let wait = document.getElementById("wait");
 let gentle = document.getElementById("gentle");
@@ -317,97 +326,81 @@ let blunt = document.getElementById("blunt");
 let finalChoice = document.getElementById("finalChoice");
 
 let intro = document.getElementById("intro");
+
 //intro button to continue 
 let next = document.getElementById("next");
+
 //the game
-let mid=document.getElementById("mid");
-next.addEventListener("click",function(){
-mid.style.display="flex";
-intro.style.display="none";
+let mid = document.getElementById("mid");
+next.addEventListener("click", function () {
+    mid.style.display = "flex";
+    intro.style.display = "none";
 })
-whiteBtn.addEventListener("click",function(){
-    resultforWhite.style.display="block";
-    redBtn.parentElement.style.display="none";
+whiteBtn.addEventListener("click", function () {
+    resultforWhite.style.display = "block";
+    redBtn.parentElement.style.display = "none";
 
 });
 
-redBtn.addEventListener("click",function(){
+redBtn.addEventListener("click", function () {
 
-    resultforRed.style.display="block";
-   whiteBtn.parentElement.style.display="none";
-   finalChoice.style.display="block"
+    resultforRed.style.display = "block";
+    whiteBtn.parentElement.style.display = "none";
+    finalChoice.style.display = "block"
 
 });
 
-// click change my mind 
-gotoEnd.addEventListener("click",function(){
+// click change my mind - rest lots of stuff 
+gotoEnd.addEventListener("click", function () {
     console.log("clicked");
-    resultforRed.style.display="none";
-    whiteBtn.parentElement.style.display="flex";
-    redBtn.parentElement.style.display="flex";
-    resultforWhite.style.display="none";
-    resultforBlue.style.display="none";
-    finalChoice.style.display="none";
-    gentleText.style.display="none";
-    bluntText.style.display="none";
-    gentle.style.display="inline-block";
-    blunt.style.display="inline-block";
+    resultforRed.style.display = "none";
+    whiteBtn.parentElement.style.display = "flex";
+    redBtn.parentElement.style.display = "flex";
+    resultforWhite.style.display = "none";
+    resultforBlue.style.display = "none";
+    finalChoice.style.display = "none";
+    gentleText.style.display = "none";
+    bluntText.style.display = "none";
+    gentle.style.display = "inline-block";
+    blunt.style.display = "inline-block";
 
 })
 
-wait.addEventListener("click",function(){
-    resultforBlue.style.display="block";
+wait.addEventListener("click", function () {
+    resultforBlue.style.display = "block";
 
 })
 
-gentle.addEventListener("click", function(){
-document.getElementById("gentleText").style.display="block";
-blunt.style.display="none";
-finalChoice.style.display="block";
+gentle.addEventListener("click", function () {
+    document.getElementById("gentleText").style.display = "block";
+    blunt.style.display = "none";
+    finalChoice.style.display = "block";
 
 });
 
-blunt.addEventListener("click", function(){
-    document.getElementById("bluntText").style.display="block";
-    gentle.style.display="none";
-    finalChoice.style.display="block";
+blunt.addEventListener("click", function () {
+    document.getElementById("bluntText").style.display = "block";
+    gentle.style.display = "none";
+    finalChoice.style.display = "block";
 
-    });
+});
 
-function showEnding(stateCounter){
+function showEnding(stateCounter) {
 
     //if there are four times of the DONE, then show the END 
     //you can change the number to 1 for debugging, change back to 4 when you are done 
-    if(stateCounter==4){
-        intro.style.display="none";
-        mid.style.display="none";
-        end.style.display="block";
-        console.log('stateCounter in showending',stateCounter)
-        //show the next screen on top 
-        // show the hyperlink to the next screen? 
+    if (stateCounter == 4) {
+        intro.style.display = "none";
+        mid.style.display = "none";
+        end.style.display = "block";
+        console.log('stateCounter in showending', stateCounter)
 
     }
 }
 
-// gotoStart.addEventListener("click",function(){
-
-    // intro.style.display="block";
-    // mid.style.display="none";
-    // end.style.display="none";
-    // blue.style.opacity=1;
-    // white.style.opacity=1;
-    // red.style.opacity=1;
-    // green.style.opacity=1;
-    //  state = "";
-
-    // index=0;
-    // stateCounter=0;
-    // counter=0;
-// })
 
 
-
-//create popup - to be finished 
+//create popup - to be finished - started on 11/10 
 function showCollections() {
 
     for (let i = 0; i < 4; i++) {
@@ -450,13 +443,10 @@ blueChar.addEventListener("click", function () {
 
 });
 
-//change the state if the four for each character is finished 
-//show intro information 
-//show outro information - gets to vote - two buttons - show different outcome 
-
 function showAnswers(answerArrays, index, col) {
 
     //need to fix the index situation - just take the same avlue - do not count duplicate if the question is not changed 
+    //index situatuion FIXED - 11/15
     let lastIndex = 0;
     if (lastIndex != index) {
         counter++;
@@ -466,13 +456,13 @@ function showAnswers(answerArrays, index, col) {
         anContent.innerHTML = "It's time to move on to the next candidate"
         //dim the light 
         col.style.opacity = 0.2;
-        state="done";
-        if(state=="done"){
+        state = "done";
+        if (state == "done") {
             stateCounter++;
         }
 
 
-        console.log(stateCounter,'stateCounter');
+        console.log(stateCounter, 'stateCounter');
         return stateCounter;
 
     } else {
@@ -518,7 +508,7 @@ function togglePause(myAudio) {
 }
 
 
-//add audio - Yiting 
-//dim the light - Yiting 
-//voting part - two buttons - show up different result - Yiting 
-//intro - Wen 
+//add audio - Yiting - tbf
+//dim the light - Yiting - DONE - 11/15 
+//voting part - two buttons - show up different result - Yiting - DONE - 11/15 
+//intro - Wen - Yiting - Done - 11/15 

@@ -15,20 +15,18 @@ feedbacks
 - composition of the layout of the format DONE
 - audio and text should be slightly differnt or engaging - or audio should be very abstract? 
 - fixing the audio problem 
-- fix undefined problem 
-- save the selections of choices chosen by users for each character - hover name will see the selections chosen - popup?
-- choice of color, font 
-- how to keep track of what choices users made 
+- fix undefined problem DONE
+- save the selections of choices chosen by users for each character - hover name will see the selections chosen - popup? - HALF DONE
+- choice of color, font - Wen you should look into it 
+- how to keep track of what choices users made - DONE 
 - how to make the buttons of selections characteristic
-- how to get back to see what you know about the characters? through questions? 
+- how to get back to see what you know about the characters? through questions? - half DONE 
 
 
 
 -->
 
 <body>
-
-
 
     <!-- intro scene  -->
     <div id="intro">
@@ -50,52 +48,38 @@ feedbacks
     <!-- main scene -->
 
     <!-- top bar -->
-
-
-    <!-- <div style="position:absolute;top:15vh;text-align:center;width:80vw;padding-left: 10vw;">
-        <h2>intro</h2>
-        <p>
-            It was reported that the innocent creatures in the Golden Temple were killed by an unnatural flood,
-            allegedly caused by Miss White.
-            <p>
-                You are the judge. You will hear stories from four characters and you are to judge who is guilty. You
-                are deciding if Miss White or The Monk is guilty of the charge.
-            </p>
-            <p>
-                Click on the color circle, to hear their stories.
-            </p>
-    </div> -->
-
-
-
-
     <!-- create four divs of four circles  -->
 
-    <div id="mid"class="biggerWrapper" style="display:none">
+    <div id="mid" class="biggerWrapper" style="display:none">
         <div class="wrapper">
             <!-- <p>browser focused white snake story</p> -->
             <div class="ball">
                 <div id="blue"></div>
                 <p id="blueChar">Xu Xian</p>
+                <p>The husband who died once.</p>
                 <!-- add one line for each characters experience  -->
             </div>
             <div class="ball">
                 <div id="white"></div>
                 <p id="whiteChar">Miss White</p>
+                <p>The white snake in human form. </p>
 
             </div>
             <div class="ball">
                 <div id="green"></div>
                 <p id="greenChar">Miss Teal</p>
+                <p>The green snake in human form.</p>
 
             </div>
             <div class="ball">
                 <div id="red"></div>
                 <p id="redChar">The Monk</p>
+                <p>The Monk </p>
 
             </div>
         </div>
 
+        <!-- I am thinking of creating the collections of questions and answers as pop up - still working on it  -->
         <div class="wrapper">
             <div id="blueSection">1
                 <!-- <ul>
@@ -132,8 +116,6 @@ feedbacks
     <!-- end scene  -->
     <div id="end" class="biggerWrapper" style="display:none" style="margin: 2vh auto;">
         <h1 style="top:10vh">Hey Judge, who is guilty?</h1>
-        <!-- <h2>You now know all of the below</h2> -->
-        <!-- will show list of what they know -->
 
         <div id="twoballs" class="wrapper" style="height:40vh">
 
@@ -175,8 +157,6 @@ feedbacks
         </div>
 
         <div id="resultforRed">
-            <!-- <h2>The result</h2> -->
-
             <br><br>
             <h1>Tower Prison for 10 years, Miss White gets to reunite with Xu Xian and Miss Teal
         </div>
@@ -192,7 +172,6 @@ feedbacks
     </div>
 
     <script type="module" src="src/whitesnakeAudio.js"></script>
-    <!-- <script type="module"src="src/whitesnake.js"></script> -->
     <script type="module" src="src/main.js"></script>
 
 </body>
