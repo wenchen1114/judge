@@ -188,6 +188,8 @@ blue.addEventListener("click", function () {
     state = "blue";
     qsContent.innerHTML = blueArr[index];
     scoreContent.textContent = `${(blueCounter)}/4`;
+    qsContent.style.color = "#5bc6ff";
+    qsContent.style.transition = "all 1s";
 })
 
 
@@ -195,6 +197,8 @@ red.addEventListener("click", function () {
     state = "red";
     qsContent.innerHTML = redArr[index];
     scoreContent.textContent = `${(redCounter)}/4`;
+    qsContent.style.color = "#e44343";
+    qsContent.style.transition = "all 1s";
 
 })
 
@@ -204,10 +208,10 @@ white.addEventListener("click", function () {
     qsContent.innerHTML = whiteArr[index];
     scoreContent.textContent = `${(whiteCounter)}/4`;
 
-    for (let i = 0; i < buttonBg.length; i++) {
-        buttonBg[i].style.backgroundColor = "#e6e6e6";
-
-    }
+    //for (let i = 0; i < buttonBg.length; i++) {
+        qsContent.style.color = "#e6e6e6";
+        qsContent.style.transition = "all 1s";
+    //}
 
 })
 
@@ -218,10 +222,10 @@ green.addEventListener("click", function () {
     scoreContent.textContent = `${(greenCounter)}/4`;
 
 
-    for (let i = 0; i < buttonBg.length; i++) {
-        buttonBg[i].style.backgroundColor = "#5acfc7";
-
-    }
+    //for (let i = 0; i < buttonBg.length; i++) {
+        qsContent.style.color = "#5acfc7";
+        qsContent.style.transition = "all 1s";
+    //}
 })
 
 //if qscontent is clicked, find the one it's selected and show the corresponding answers 
