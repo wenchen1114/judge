@@ -19,11 +19,13 @@
 // 4. voice over 
 
 
-
 //finished on 11/16 
 // 1. save collections for each character in separate arrays
 // 2. better UI for selections prior to judge 
 // 3. database edits done
+// 4. fixed audio - declared audio outside of the function so it will replace the src 
+// 5. added more ui for smoother TransitionEvent
+
 
 import jsonOBJ from './whitesnakeAudio.js'
 
@@ -130,65 +132,68 @@ let redAnswerArr = getAns("red");
 
 qsContent.innerHTML = blueArr[index];
 
-//collections will hold the questions and answers for each character 
-//user click on the name to see the full info 
-
-
 //why do you have to click the right button and then select the question to make sure they appear in order? 
 
 function showRQs(questionsArray) {
 
-    // colQs.push(questionsArray[index]);
-
-    if(questionsArray=blueArr){
-        blueColQs.push(questionsArray[index]);
-    }
-    if(questionsArray=redArr){
-        redColQs.push(questionsArray[index]);
-    }
-    if(questionsArray=whiteArr){
-        whiteColQs.push(questionsArray[index]);
-    }
-    if(questionsArray=greenArr){
-        greenColQs.push(questionsArray[index]);
-    }
-
+    index++;
     if (index > questionsArray.length - 1) {
         index = 0;
     }
-    index++;
+
     qsContent.innerHTML = questionsArray[index];
+
+
+    if (questionsArray = blueArr) {
+        blueColQs.push(questionsArray[index]);
+        // qsContent.innerHTML=questionsArray[index]
+        console.log(qsContent.innerHTML, "qscontent")
+
+    }
+    if (questionsArray = redArr) {
+        redColQs.push(questionsArray[index]);
+    }
+    if (questionsArray = whiteArr) {
+        whiteColQs.push(questionsArray[index]);
+    }
+    if (questionsArray = greenArr) {
+        greenColQs.push(questionsArray[index]);
+    }
+
+
+
 
 }
 
 //when i click the charatcer name, should show the corresponding lists 
 
 function showLQs(questionsArray) {
-
-    // colQs.push(questionsArray[index]);
-
-    if(questionsArray=blueArr){
-        blueColQs.push(questionsArray[index]);
-    }
-    if(questionsArray=redArr){
-        redColQs.push(questionsArray[index]);
-    }
-    if(questionsArray=whiteArr){
-        whiteColQs.push(questionsArray[index]);
-    }
-    if(questionsArray=greenArr){
-        greenColQs.push(questionsArray[index]);
-    }
-
+    index--;
     if (index < 0) {
         index = questionsArray.length - 1;
     }
+
+
+    // colQs.push(questionsArray[index]);
+
+
+
     qsContent.innerHTML = questionsArray[index];
+    if (questionsArray = blueArr) {
+        blueColQs.push(questionsArray[index]);
+    }
+    if (questionsArray = redArr) {
+        redColQs.push(questionsArray[index]);
+    }
+    if (questionsArray = whiteArr) {
+        whiteColQs.push(questionsArray[index]);
+    }
+    if (questionsArray = greenArr) {
+        greenColQs.push(questionsArray[index]);
+    }
 
     console.log(questionsArray.length)
     console.log("left click ", index);
-
-    index--;
 
 }
 
@@ -306,6 +311,8 @@ let anContent = document.createElement("p");
 answers.appendChild(anContent);
 anContent.id = "anContent";
 
+//convert the scorecontent into four tiny circles and dim one by one 
+// color code it as well 
 let counter = 0;
 let score = document.getElementById("score");
 let scoreContent = document.createElement("p");
@@ -313,17 +320,23 @@ score.appendChild(scoreContent)
 scoreContent.style.textAlign = "center";
 scoreContent.textContent = "0/4";
 
+let scoreCircles = [];
+let circle = document.createElement("div");
+
+let blueAudioArr = getAudio("blue");
+let redAudioArr = getAudio("red");
+let whiteAudioArr = getAudio("white");
+let greenAudioArr = getAudio("green");
 
 //get the index - select the correponding answers 
 qsContent.addEventListener("click", function () {
-   
+
     if (state == "blue") {
         //should incorporate audio and answer together later 
-     
+
         showAnswers(blueAnswerArr, index, blue);
-        // console.log(stateCounter);
         showEnding(stateCounter);
-        // playAudios(blueAudioArr); //play the audio
+        playAudios(blueAudioArr,index); //play the audio
     }
 
     if (state == "white") {
@@ -352,12 +365,18 @@ qsContent.addEventListener("click", function () {
 
 });
 
+let gotoMid = document.getElementById("gotoMid");
+
+gotoMid.addEventListener("click",function(){
+    mid.style.display="flex";
+    end.style.display="none";
+})
+
+//END - final stage to judge 
 let whiteBtn = document.getElementById("whiteBtn");
 // let whiteBtnChar = document.getElementById("whiteBtnChar");
-
 let redBtn = document.getElementById("redBtn");
 // let redBtnChar = document.getElementById("redBtnChar");
-
 let resultforWhite = document.getElementById("resultforWhite");
 let resultforRed = document.getElementById("resultforRed");
 let resultforBlue = document.getElementById("resultforBlue");
@@ -371,7 +390,6 @@ let blunt = document.getElementById("blunt");
 let finalChoice = document.getElementById("finalChoice");
 
 let intro = document.getElementById("intro");
-
 //intro button to continue 
 let next = document.getElementById("next");
 
@@ -384,18 +402,16 @@ next.addEventListener("click", function () {
 whiteBtn.addEventListener("click", function () {
     resultforWhite.style.display = "block";
     redBtn.parentElement.style.display = "none";
-
 });
 
 redBtn.addEventListener("click", function () {
-
     resultforRed.style.display = "block";
     whiteBtn.parentElement.style.display = "none";
     finalChoice.style.display = "block"
 
 });
 
-// click change my mind - rest lots of stuff 
+// click change my mind - RESET lots of stuff 
 gotoEnd.addEventListener("click", function () {
     console.log("clicked");
     resultforRed.style.display = "none";
@@ -413,7 +429,6 @@ gotoEnd.addEventListener("click", function () {
 
 wait.addEventListener("click", function () {
     resultforBlue.style.display = "block";
-
 })
 
 gentle.addEventListener("click", function () {
@@ -430,6 +445,7 @@ blunt.addEventListener("click", function () {
 
 });
 
+//prompt users to click the names to learn more information
 let allInfo = document.getElementById("allInfo");
 
 function showEnding(stateCounter) {
@@ -441,14 +457,15 @@ function showEnding(stateCounter) {
     }
 }
 
-let ready=document.getElementById("ready");
+//user ready to judge 
+let ready = document.getElementById("ready");
 ready.addEventListener("click", function () {
     intro.style.display = "none";
     mid.style.display = "none";
     end.style.display = "block";
 })
 
-let popup = document.getElementById("pop-up");
+//create different popup windoes for each characters 
 let bluePopUp = document.getElementById("bluePopUp");
 let whitePopUp = document.getElementById("whitePopUp");
 let greenPopUp = document.getElementById("greenPopUp");
@@ -458,17 +475,18 @@ let whiteList = document.getElementById("whiteList");
 let redList = document.getElementById("redList");
 let greenList = document.getElementById("greenList");
 
-let blueColAns=[];
-let blueColQs=[];
-let redColAns=[];
-let redColQs=[];
-let whiteColAns=[];
-let whiteColQs=[];
-let greenColAns=[];
-let greenColQs=[];
+//create answers and questions array for each character 
+let blueColAns = [];
+let blueColQs = [];
+let redColAns = [];
+let redColQs = [];
+let whiteColAns = [];
+let whiteColQs = [];
+let greenColAns = [];
+let greenColQs = [];
 
-//create popup - to be finished - started on 11/10 
-function showCollections(colPopUp, colClose, colList,colorQs, colorAns) {
+//popup finished on 11/16 
+function showCollections(colPopUp, colClose, colList, colorQs, colorAns) {
     colList.innerHTML = "";
 
     for (let i = 0; i < 4; i++) {
@@ -482,22 +500,18 @@ function showCollections(colPopUp, colClose, colList,colorQs, colorAns) {
         colClose.style.display = "flex";
 
         colList.innerHTML += `
-       
-            <li>
+        <li>
            <h2> ${colQsText.innerHTML}</h2>
            <p>${colAnsText.innerHTML}</p>
-            </li>
-            <br>
-         
-            `
+        </li>
+        <br>`
         colPopUp.appendChild(colList);
-
         console.log("colList", colList);
-
 
     }
 }
 
+//click on the "X" to close each popup window
 let blueClose = document.getElementById("blueClose");
 blueClose.addEventListener("click", function () {
 
@@ -527,56 +541,38 @@ whiteClose.addEventListener("click", function () {
 })
 
 
-// popup.addEventListener("click", function(){
-
-//     popup.style.display="none";
-// })
-
-
-//hyperlink the character text to show the collections of information selected by the user
+// should create a better indication for them to click on the name 
 let blueChar = document.getElementById("blueChar");
 let redChar = document.getElementById("redChar");
 let whiteChar = document.getElementById("whiteChar");
 let greenChar = document.getElementById("greenChar");
 
-//try to store the stuff into individual array to show and clear when restart
 
 redChar.addEventListener("click", function () {
     disableBtn(redChar);
-
     redList.innerHTML = ""; //reset 
-    showCollections(redPopUp, redClose, redList,redColQs,redColAns);
+    showCollections(redPopUp, redClose, redList, redColQs, redColAns);
 
-    //  colQs=[];
-    //     colAns=[];
 });
 greenChar.addEventListener("click", function () {
     disableBtn(greenChar);
-
     greenList.innerHTML = ""; //reset 
-    showCollections(greenPopUp, greenClose, greenList,greenColQs,greenColAns);
-    // colQs=[];
-    //     colAns=[];
+    showCollections(greenPopUp, greenClose, greenList, greenColQs, greenColAns);
 
 });
 whiteChar.addEventListener("click", function () {
-
-    // disableBtn(whiteChar);
-    // whiteList.innerHTML = ""; //reset 
-    showCollections(whitePopUp, whiteClose, whiteList,whiteColQs,whiteColAns);
+    disableBtn(whiteChar);
+    showCollections(whitePopUp, whiteClose, whiteList, whiteColQs, whiteColAns);
 });
 
 blueChar.addEventListener("click", function () {
-
     disableBtn(blueChar);
-    blueList.innerHTML = ""; //reset 
-    showCollections(bluePopUp, blueClose, blueList,blueColQs,blueColAns);
+    showCollections(bluePopUp, blueClose, blueList, blueColQs, blueColAns);
 
 });
 
-function showAnswers(answerArrays, index, col) {
 
-    //need to fix the index situation - just take the same avlue - do not count duplicate if the question is not changed 
+function showAnswers(answerArrays, index, col) {
     //index situatuion FIXED - 11/15
     let lastIndex = 0;
     if (lastIndex != index) {
@@ -602,57 +598,46 @@ function showAnswers(answerArrays, index, col) {
         scoreContent.textContent = `${(index+1)}/4`;
         // colAns.push(answerArrays[index]);
 
-        if(answerArrays=whiteAnswerArr){
+        if (answerArrays = whiteAnswerArr) {
             whiteColAns.push(answerArrays[index]);
 
         }
-        if(answerArrays=redAnswerArr){
+        if (answerArrays = redAnswerArr) {
             redColAns.push(answerArrays[index]);
 
         }
-        if(answerArrays=greenAnswerArr){
+        if (answerArrays = greenAnswerArr) {
             greenColAns.push(answerArrays[index]);
 
         }
-        if(answerArrays=blueAnswerArr){
+        if (answerArrays = blueAnswerArr) {
             blueColAns.push(answerArrays[index]);
 
         }
 
     }
-    // console.log("answers", anContent.innerHTML);
-    console.log("whitecolsAns",whiteColAns);
+    console.log("answers", anContent.innerHTML);
+    // console.log("whitecolsAns", whiteColAns);
 
 
 }
-let blueAudioArr = getAudio("blue");
 
+//should set the audio outside, otherwise it will be created everytime you run the function 
+let audio= document.createElement("audio");
 //pause audio when it goes to another index/click 
-function playAudios(audioArrays) {
+function playAudios(audioArrays,index) {
 
-    let audioURL, audio;
-    if (counter > 3) {
-        anContent.innerHTML = "It's time to move on to the next candidate"
-    } else {
-        audioURL = `../${audioArrays[index]}`
-        audio = new Audio(audioURL);
-        audio.play(); // another click will play audio on top of each other - how to solve it 
-        console.log(audio.paused)
-        scoreContent.textContent = `${(counter+1)}/4`;
+    let  audioURL = `../${audioArrays[index]}`;
 
-    }
-    counter++;
+        audio.src=audioURL;
+        if(audio.paused||!audio.played){
+            audio.play();
+        }else{
+            audio.pause();
+        }
+    
 }
 
-
-function togglePause(myAudio) {
-    if (myAudio.paused && myAudio.currentTime > 0 && !myAudio.ended) {
-        myAudio.play();
-        console.log("why not working")
-    } else {
-        myAudio.pause();
-    }
-}
 
 
 //add audio - Yiting - tbf
