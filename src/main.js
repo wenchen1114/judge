@@ -21,6 +21,7 @@ let red = document.getElementById("red");
 
 let state = "";
 let index = 0;
+let stateCounter =0;
 
 function getQs(color) {
     let questionArr = [];
@@ -123,7 +124,7 @@ function showRQs(questionsArray) {
         index = 0;
     }
     qsContent.innerHTML = questionsArray[index];
-    console.log(questionsArray.length)
+    // console.log(questionsArray.length)
     console.log("right click ", index)
 
     colQs.push(questionsArray[index]);
@@ -185,6 +186,8 @@ leftBtn.addEventListener("click", function () {
 
 let buttonBg = document.getElementsByTagName("button");
 blue.addEventListener("click", function () {
+    index=0;
+
     state = "blue";
     counter = 0;
     qsContent.innerHTML = blueArr[index];
@@ -198,6 +201,7 @@ blue.addEventListener("click", function () {
 
 
 red.addEventListener("click", function () {
+    index=0;
     state = "red";
     counter = 0;
     qsContent.innerHTML = redArr[index];
@@ -211,6 +215,7 @@ red.addEventListener("click", function () {
 
 
 white.addEventListener("click", function () {
+    index=0;
     state = "white";
     counter = 0;
     qsContent.innerHTML = whiteArr[index];
@@ -224,6 +229,8 @@ white.addEventListener("click", function () {
 
 
 green.addEventListener("click", function () {
+    index=0;
+
     state = "green";
     counter = 0;
     qsContent.innerHTML = redArr[index];
@@ -249,73 +256,228 @@ score.appendChild(scoreContent)
 scoreContent.style.textAlign = "center";
 scoreContent.textContent = "0/4";
 
+// let blueIndex = 0;
 
 //get the index - select the correponding answers 
-
 qsContent.addEventListener("click", function () {
     if (state == "blue") {
-        showAnswers(blueAnswerArr);
-        playAudios(blueAudioArr); //play the audio
+        //should incorporate audio and answer together later 
+        //focus on counting individual indexs first 
+        // let blueIndex=0;
+
+        showAnswers(blueAnswerArr, index, blue);
+        console.log( stateCounter)
+
+        // playAudios(blueAudioArr); //play the audio
     }
 
     if (state == "white") {
-        showAnswers(whiteAnswerArr);
+        showAnswers(whiteAnswerArr, index, white);
+        console.log( stateCounter)
+
     }
 
     if (state == "green") {
-        showAnswers(greenAnswerArr);
+        showAnswers(greenAnswerArr, index, green);
+        console.log(stateCounter)
+
     }
 
     if (state == "red") {
-        showAnswers(redAnswerArr);
+        showAnswers(redAnswerArr, index, red);
+        console.log(stateCounter)
+
     }
+
 });
+
+let whiteBtn = document.getElementById("whiteBtn");
+let whiteBtnChar = document.getElementById("whiteBtnChar");
+
+let redBtn = document.getElementById("redBtn");
+let redBtnChar = document.getElementById("redBtnChar");
+
+let resultforWhite = document.getElementById("resultforWhite");
+let resultforRed = document.getElementById("resultforRed");
+let resultforBlue = document.getElementById("resultforBlue");
+
+let gotoEnd = document.getElementById("gotoEnd");
+let gotoStart = document.getElementById("gotoStart");
+let end = document.getElementById("end");
+let wait = document.getElementById("wait");
+let gentle = document.getElementById("gentle");
+let blunt = document.getElementById("blunt");
+let finalChoice = document.getElementById("finalChoice");
+
+let intro = document.getElementById("intro");
+//intro button to continue 
+let next = document.getElementById("next");
+//the game
+let mid=document.getElementById("mid");
+next.addEventListener("click",function(){
+mid.style.display="flex";
+intro.style.display="none";
+})
+whiteBtn.addEventListener("click",function(){
+    resultforWhite.style.display="block";
+    redBtn.parentElement.style.display="none";
+
+});
+
+redBtn.addEventListener("click",function(){
+
+    resultforRed.style.display="block";
+   whiteBtn.parentElement.style.display="none";
+   finalChoice.style.display="block"
+
+});
+
+// click change my mind 
+gotoEnd.addEventListener("click",function(){
+    console.log("clicked");
+    resultforRed.style.display="none";
+    whiteBtn.parentElement.style.display="flex";
+    redBtn.parentElement.style.display="flex";
+    resultforWhite.style.display="none";
+    resultforBlue.style.display="none";
+    finalChoice.style.display="none";
+    gentleText.style.display="none";
+    bluntText.style.display="none";
+    gentle.style.display="inline-block";
+    blunt.style.display="inline-block";
+
+})
+
+wait.addEventListener("click",function(){
+    resultforBlue.style.display="block";
+
+})
+
+gentle.addEventListener("click", function(){
+document.getElementById("gentleText").style.display="block";
+blunt.style.display="none";
+finalChoice.style.display="block";
+
+});
+
+blunt.addEventListener("click", function(){
+    document.getElementById("bluntText").style.display="block";
+    gentle.style.display="none";
+    finalChoice.style.display="block";
+
+    });
+
+function showEnding(stateCounter){
+
+    //if there are four times of the DONE, then show the END 
+    if(stateCounter=1){
+        intro.style.display="none";
+        mid.style.display="none";
+        end.style.display="block";
+        console.log('stateCounter in showending',stateCounter)
+        //show the next screen on top 
+        // show the hyperlink to the next screen? 
+
+    }
+}
+
+// gotoStart.addEventListener("click",function(){
+
+    // intro.style.display="block";
+    // mid.style.display="none";
+    // end.style.display="none";
+    // blue.style.opacity=1;
+    // white.style.opacity=1;
+    // red.style.opacity=1;
+    // green.style.opacity=1;
+    //  state = "";
+
+    // index=0;
+    // stateCounter=0;
+    // counter=0;
+// })
+
 
 
 //create popup - to be finished 
 function showCollections() {
 
-        let colQsText = document.createElement("h2");
-        colQsText.innerHTML = colQs[0];
-        let colAnsText = document.createElement("p")
-        colAnsText.innerHTML = colAns[0];
-        let colDiv = document.createElement("div");
-        colDiv.appendChild(colQsText);
-        colDiv.appendChild(colAnsText);
+    for (let i = 0; i < 4; i++) {
 
-        colDiv.id = "colDiv";
-        colDiv.style.backgroundColor="white";
+        let colQsText = document.createElement("h2");
+        colQsText.innerHTML = colQs[i];
+        let colAnsText = document.createElement("p")
+        colAnsText.innerHTML = colAns[i];
+        // colQs.appendChild(colAns);
+        let colDiv = document.createElement("div");
+        // let listItems = document.createElement("ul");
+        // colDiv.append(listItems);
+
+
+        // listItems.innerHTML += `
+        // <ul>
+        //     <li>${colQsText}</li>
+        //     <li>${colAnsText}</li>
+        //  </ul>`
+
+        // colDiv.appendChild(colQsText);
+        // colDiv.appendChild(colAnsText);
+
+        // colDiv.id = "colDiv";
+        // colDiv.style.color = "white";
+        // colAnsText.style.color="white";
 
         console.log(colQsText, colAnsText);
-    
+        // let blueSection = document.getElementById("blueSection");
+
+
+    }
 }
 //hyperlink the character text to show the collections of information selected by the user
 let blueChar = document.getElementById("blueChar");
 
-showCollections();
 
 blueChar.addEventListener("click", function () {
-        showCollections();
-    
+    showCollections();
+
 });
+
 //change the state if the four for each character is finished 
 //show intro information 
 //show outro information - gets to vote - two buttons - show different outcome 
 
-function showAnswers(answerArrays) {
+function showAnswers(answerArrays, index, col) {
+
+    //need to fix the index situation - just take the same avlue - do not count duplicate if the question is not changed 
+    let lastIndex = 0;
+    if (lastIndex != index) {
+        counter++;
+    }
 
     if (counter > 3) {
         anContent.innerHTML = "It's time to move on to the next candidate"
+        //dim the light 
+        col.style.opacity = 0.2;
+        state="done";
+        if(state=="done"){
+            stateCounter++;
+        }
+
+        showEnding(stateCounter);
+        console.log(stateCounter,'stateCounter');
+        return stateCounter;
+
     } else {
         anContent.innerHTML = answerArrays[index];
         console.log("counter less than 4")
         console.log("index in answers", index)
-        scoreContent.textContent = `${(counter+1)}/4`;
+        lastIndex = index;
+        scoreContent.textContent = `${(index+1)}/4`;
         colAns.push(answerArrays[index]);
+        console.log("counter", counter);
     }
-    //one question can only count once - not based on click, but based on choice?
 
-    counter++;
+
 
 }
 let blueAudioArr = getAudio("blue");

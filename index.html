@@ -31,7 +31,20 @@ feedbacks
 
 
     <!-- intro scene  -->
-    <!-- <div></div> -->
+    <div id="intro">
+
+        <h1>It was reported that the innocent creatures in the Golden Temple were killed by an unnatural flood,
+            allegedly caused by Miss White.
+
+        </h1>
+        <h1> You are the judge. You will hear stories from four characters and you are to judge who is guilty. You are
+            deciding if Miss White or The Monk is guilty of the charge.
+
+        </h1>
+        <h1> Click on the color circle, to hear their stories.
+        </h1>
+        <button id="next">I am ready to judge.</button>
+    </div>
 
 
     <!-- main scene -->
@@ -58,7 +71,7 @@ feedbacks
 
     <!-- create four divs of four circles  -->
 
-    <div id="biggerWrapper">
+    <div id="mid"class="biggerWrapper" style="display:none">
         <div class="wrapper">
             <!-- <p>browser focused white snake story</p> -->
             <div class="ball">
@@ -83,6 +96,20 @@ feedbacks
             </div>
         </div>
 
+        <div class="wrapper">
+            <div id="blueSection">1
+                <!-- <ul>
+                    <li>
+                       <h2>helllo</h2>
+                       <p>1</p> </li>
+                    <li>hello</li>
+                </ul> -->
+            </div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+        </div>
+
         <!-- button selections  -->
         <div id="questionsButtons">
 
@@ -103,7 +130,66 @@ feedbacks
 
 
     <!-- end scene  -->
-    <div></div>
+    <div id="end" class="biggerWrapper" style="display:none" style="margin: 2vh auto;">
+        <h1 style="top:10vh">Hey Judge, who is guilty?</h1>
+        <!-- <h2>You now know all of the below</h2> -->
+        <!-- will show list of what they know -->
+
+        <div id="twoballs" class="wrapper" style="height:40vh">
+
+            <div class="ball">
+                <div id="whiteBtn"></div>
+                <p id="whiteBtnChar">Miss White</p>
+            </div>
+
+            <div class="ball">
+                <div id="redBtn"></div>
+                <p id="redBtnChar">The Monk</p>
+            </div>
+
+        </div>
+        <div id="resultforWhite">
+
+            <br><br>
+            <h1>Tower Prison for 10 years for Miss White
+            </h1>
+
+            <br><br>
+
+            <button id="wait">But Wait!</button>
+
+            <div id="resultforBlue" style="display:none;">
+
+                <h1>How would you like to tell Xu Xian?
+                </h1>
+
+                <button id="gentle">Gently</button>
+                <p id="gentleText" style="display: none;">" You will not be able to be with Miss White for 10 years!"
+                </p>
+
+                <button id="blunt">Bluntly</button>
+                <p id="bluntText" style="display: none;">"You will get to visit Miss White each month in the Tower
+                    Prison."</p>
+
+            </div>
+        </div>
+
+        <div id="resultforRed">
+            <!-- <h2>The result</h2> -->
+
+            <br><br>
+            <h1>Tower Prison for 10 years, Miss White gets to reunite with Xu Xian and Miss Teal
+        </div>
+
+        <div id="finalChoice" style="display: none;">
+            <!-- go back to the selection - end -->
+            <button id="gotoEnd">I change my mind</button>
+            <!-- link to start over -->
+            <button id="gotoStart">
+                <a href="index.html"> Start over</a></button>
+        </div>
+
+    </div>
 
     <script type="module" src="src/whitesnakeAudio.js"></script>
     <!-- <script type="module"src="src/whitesnake.js"></script> -->

@@ -39,8 +39,9 @@ p {
 }
 
 .wrapper {
+    /* padding-top: 10px; */
     width: 100vw;
-    height: 50vh;
+    /* height: 30vh; */
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
@@ -78,7 +79,7 @@ p {
         -5px -5px 64px #6ff1ff;
 }
 
-#white {
+#white,#whiteBtn {
 
     background: linear-gradient(145deg, #e6e6e6, #ffffff);
     box-shadow: 5px 5px 64px #b3b3b3,
@@ -92,17 +93,22 @@ p {
         -5px -5px 64px #72fffd;
 }
 
-#red {
+#red,#redBtn {
 
     background: linear-gradient(145deg, #e44343, #c03939);
     box-shadow: 5px 5px 64px #bb3737,
         -5px -5px 64px #ef4747;
 }
 
+button{
+    background-color: white;
+
+}
+
 
 /* get the grid: https://cssgrid-generator.netlify.app/  */
-#biggerWrapper {
-    display: flex;
+.biggerWrapper,#mid {
+    /* display: flex; */
     flex-flow: column wrap;
     align-content: center;
     align-items:center;
@@ -154,4 +160,9 @@ button{
 
 #rightBtn {
     grid-area: 1 / 5 / 2 / 6;
+}
+
+
+#resultforWhite, #resultforRed{
+    display: none;
 }
