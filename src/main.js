@@ -266,26 +266,33 @@ qsContent.addEventListener("click", function () {
         // let blueIndex=0;
 
         showAnswers(blueAnswerArr, index, blue);
-        console.log( stateCounter)
+        console.log( stateCounter);
+        showEnding(stateCounter);
 
         // playAudios(blueAudioArr); //play the audio
     }
 
     if (state == "white") {
         showAnswers(whiteAnswerArr, index, white);
-        console.log( stateCounter)
+        console.log( stateCounter);
+        showEnding(stateCounter);
+
 
     }
 
     if (state == "green") {
         showAnswers(greenAnswerArr, index, green);
-        console.log(stateCounter)
+        console.log(stateCounter);
+        showEnding(stateCounter);
+
 
     }
 
     if (state == "red") {
         showAnswers(redAnswerArr, index, red);
-        console.log(stateCounter)
+        console.log(stateCounter);
+        showEnding(stateCounter);
+
 
     }
 
@@ -370,7 +377,8 @@ blunt.addEventListener("click", function(){
 function showEnding(stateCounter){
 
     //if there are four times of the DONE, then show the END 
-    if(stateCounter=1){
+    //you can change the number to 1 for debugging, change back to 4 when you are done 
+    if(stateCounter==4){
         intro.style.display="none";
         mid.style.display="none";
         end.style.display="block";
@@ -463,7 +471,7 @@ function showAnswers(answerArrays, index, col) {
             stateCounter++;
         }
 
-        showEnding(stateCounter);
+
         console.log(stateCounter,'stateCounter');
         return stateCounter;
 
