@@ -7,14 +7,18 @@
     <title>White Snake</title>
     <link rel="stylesheet" href="src/style.css">
     <link href="assets/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
 </head>
 
 
 <!-- 
 feedbacks 
-- composition of the layout of the format 
+- composition of the layout of the format DONE
 - audio and text should be slightly differnt or engaging - or audio should be very abstract? 
 - fixing the audio problem 
+- fix undefined problem 
+- save the selections of choices chosen by users for each character - hover name will see the selections chosen - popup?
 - choice of color, font 
 - how to keep track of what choices users made 
 - how to make the buttons of selections characteristic
@@ -61,22 +65,22 @@ feedbacks
             <!-- <p>browser focused white snake story</p> -->
             <div class="ball">
                 <div id="blue"></div>
-                <p>Xu Xian</p>
+                <p id="blueChar">Xu Xian</p>
                 <!-- add one line for each characters experience  -->
             </div>
             <div class="ball">
                 <div id="white"></div>
-                <p>Miss White</p>
+                <p id="whiteChar">Miss White</p>
 
             </div>
             <div class="ball">
                 <div id="green"></div>
-                <p>Miss Teal</p>
+                <p id="greenChar">Miss Teal</p>
 
             </div>
             <div class="ball">
                 <div id="red"></div>
-                <p>The Monk</p>
+                <p id="redChar">The Monk</p>
 
             </div>
         </div>
@@ -87,13 +91,13 @@ feedbacks
             <button id="rightBtn">Next</button>
             <button id="leftBtn">Previous</button>
             <div id="questions">
-
             </div>
         </div>
 
         <div id="answers">
         </div>
 
+        <br>
         <div id="score">
         </div>
     </div>

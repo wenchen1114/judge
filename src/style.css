@@ -12,7 +12,7 @@ html {
     text-align: center;
     height: 100vh;
     width: 100vw;
-
+    font-family: 'Averia Serif Libre', cursive;
 }
 
 p {
@@ -22,34 +22,45 @@ p {
 #score {
     width: 100vw;
     text-align: center;
-    /* padding-top: 1vh; */
-    /* background-color:tomato ; */
-    /* background-color: yellow; */
-    height: 1vh;
+    height: 2vh;
     color: white;
+<<<<<<< Updated upstream
+    bottom: 0;
+=======
     padding-bottom: 2vh;
     position: absolute; 
-    bottom: 0;
+    bottom: 20px;
     /* position: relative; */
+>>>>>>> Stashed changes
 }
 
 #answers {
-    position: absolute;
     width: 60vw;
+    position: relative;
     height: 15vh;
-    bottom: 5vh;
-
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
 
 }
 
 .wrapper {
     width: 100vw;
-    height: 20vh;
+<<<<<<< Updated upstream
+    height: 50vh;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
+    /* z-index: 100; */
+=======
+    height: 30vh;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
     z-index: 100;
+>>>>>>> Stashed changes
 
 
 }
@@ -59,14 +70,14 @@ p {
     height: 20vh;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 
 
 }
 
 .ball>div {
-    margin: 0 auto;
+    margin: auto;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -107,48 +118,81 @@ p {
 /* get the grid: https://cssgrid-generator.netlify.app/  */
 #biggerWrapper {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     align-content: center;
-    /* align-items: center; */
-    justify-content: center;
+    align-items:center;
+    justify-content: space-evenly;
     position: absolute;
     height: 100vh;
     width: 100vw;
 }
 
 #questionsButtons {
+<<<<<<< Updated upstream
     height: 20vh;
-    background-color: white;
+    background-color: red;
+=======
+    height: 10vh;
+>>>>>>> Stashed changes
     width: 100vw;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    background-origin: padding-box;
 
+}
+
+button{
+<<<<<<< Updated upstream
+    background-color: lightgray;
+    color: black;
+=======
+    background-color: black;
+    color:white;
+    border: none;
+    font-size: 1.2em;
+    font-family: 'Averia Serif Libre', cursive;
+>>>>>>> Stashed changes
 }
 
 #leftBtn {
     grid-area: 1 / 1 / 2 / 2;
+    padding-left: 5vw;
 }
 
 #questions {
     grid-area: 1 / 2 / 2 / 5;
+<<<<<<< Updated upstream
+    background-color: gray;
+=======
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+>>>>>>> Stashed changes
 
 }
 
 #qsContent {
     text-align: center;
-    color: black;
+    color: white;
     /* background-color: red; */
     margin: auto;
     width: 100%;
-    height: 20vh;
-    padding: 5vh 0;
-    font-size: large;
+    padding: 2.5vh 0 0 0;
+    font-size: 1.5em;
 
 }
 
 #rightBtn {
     grid-area: 1 / 5 / 2 / 6;
+    padding-right: 5vw;
+}
+
+#answers p{
+    font-style: italic;
+}
+
+#score p{
+    font-size: 1em;
 }
