@@ -139,6 +139,23 @@ h2{
 
 }
 
+#circles{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+#circles>div{
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    /* opacity: 0.3; */
+    margin: 0 20px;
+}
 
 #whitePopUp{
     color: black;

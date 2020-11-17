@@ -245,7 +245,11 @@ blue.addEventListener("click", function () {
     state = "blue";
     counter = 0;
     blueList.innerHTML = ""
+    for (const circle of circles) {
 
+        circle.style.opacity=1;
+        console.log(circle);
+      }
     qsContent.innerHTML = blueArr[index];
     //change button bg color 
     for (let i = 0; i < buttonBg.length; i++) {
@@ -266,8 +270,12 @@ red.addEventListener("click", function () {
     state = "red";
     counter = 0;
     qsContent.innerHTML = redArr[index];
-    redList.innerHTML = ""
+    for (const circle of circles) {
 
+        circle.style.opacity=1;
+        console.log(circle);
+      }
+    redList.innerHTML = ""
     for (let i = 0; i < buttonBg.length; i++) {
         buttonBg[i].style.backgroundColor = "#ef4747";
 
@@ -279,9 +287,15 @@ red.addEventListener("click", function () {
 
 
 white.addEventListener("click", function () {
+
     index = 0;
     state = "white";
     counter = 0;
+    for (const circle of circles) {
+
+        circle.style.opacity=1;
+        console.log(circle);
+      }
     qsContent.innerHTML = whiteArr[index];
     whiteList.innerHTML = ""
 
@@ -295,10 +309,16 @@ white.addEventListener("click", function () {
 
 
 green.addEventListener("click", function () {
+
     index = 0;
     greenList.innerHTML = ""
     state = "green";
     counter = 0;
+    for (const circle of circles) {
+
+        circle.style.opacity=1;
+        console.log(circle);
+      }
     qsContent.innerHTML = redArr[index];
 
 
@@ -325,15 +345,19 @@ let scoreContent = document.createElement("p");
 score.appendChild(scoreContent)
 scoreContent.style.textAlign = "center";
 scoreContent.textContent = "0/4";
-
-let scoreCircles = [];
-let circle = document.createElement("div");
-
 let blueAudioArr = getAudio("blue");
 let redAudioArr = getAudio("red");
 let whiteAudioArr = getAudio("white");
 let greenAudioArr = getAudio("green");
 
+let circleDiv = document.getElementById("circles");
+let circles = circleDiv.children;
+let circle = circles[counter];
+for (const circle of circles) {
+
+    circle.style.opacity=1;
+    console.log(circle);
+  }
 //get the index - select the correponding answers 
 qsContent.addEventListener("click", function () {
 
@@ -342,7 +366,7 @@ qsContent.addEventListener("click", function () {
 
         showAnswers(blueAnswerArr, index, blue);
         showEnding(stateCounter);
-        playAudios(blueAudioArr,index); //play the audio
+        playAudios(blueAudioArr, index); //play the audio
     }
 
     if (state == "white") {
@@ -373,9 +397,9 @@ qsContent.addEventListener("click", function () {
 
 let gotoMid = document.getElementById("gotoMid");
 
-gotoMid.addEventListener("click",function(){
-    mid.style.display="flex";
-    end.style.display="none";
+gotoMid.addEventListener("click", function () {
+    mid.style.display = "flex";
+    end.style.display = "none";
 })
 
 //END - final stage to judge 
@@ -578,6 +602,8 @@ blueChar.addEventListener("click", function () {
 });
 
 
+
+// still counter is not fixed I guess 
 function showAnswers(answerArrays, index, col) {
     //index situatuion FIXED - 11/15
     let lastIndex = 0;
@@ -602,7 +628,13 @@ function showAnswers(answerArrays, index, col) {
         console.log("index in answers", index)
         lastIndex = index;
         scoreContent.textContent = `${(index+1)}/4`;
+
         // colAns.push(answerArrays[index]);
+      
+      circle  = circles[counter];
+        circle.style.opacity = 0.2;
+        console.log("circles", circles)
+
 
         if (answerArrays = whiteAnswerArr) {
             whiteColAns.push(answerArrays[index]);
@@ -629,19 +661,19 @@ function showAnswers(answerArrays, index, col) {
 }
 
 //should set the audio outside, otherwise it will be created everytime you run the function 
-let audio= document.createElement("audio");
+let audio = document.createElement("audio");
 //pause audio when it goes to another index/click 
-function playAudios(audioArrays,index) {
+function playAudios(audioArrays, index) {
 
-    let  audioURL = `../${audioArrays[index]}`;
+    let audioURL = `../${audioArrays[index]}`;
 
-        audio.src=audioURL;
-        if(audio.paused||!audio.played){
-            audio.play();
-        }else{
-            audio.pause();
-        }
-    
+    audio.src = audioURL;
+    if (audio.paused || !audio.played) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
+
 }
 
 
