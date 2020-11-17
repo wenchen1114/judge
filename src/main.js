@@ -136,7 +136,7 @@ let whiteAnswerArr = getAns("white");
 let greenAnswerArr = getAns("green");
 let redAnswerArr = getAns("red");
 
-qsContent.innerHTML = blueArr[index];
+qsContent.innerHTML = "Click on one character to listen to their tesimonies";
 
 //why do you have to click the right button and then select the question to make sure they appear in order? 
 
@@ -253,7 +253,7 @@ blue.addEventListener("click", function () {
     qsContent.innerHTML = blueArr[index];
     //change button bg color 
     for (let i = 0; i < buttonBg.length; i++) {
-        buttonBg[i].style.backgroundColor = "#4da7db";
+        buttonBg[i].style.color = "#4da7db";
 
     }
     disableBtn(blue);
@@ -277,7 +277,7 @@ red.addEventListener("click", function () {
       }
     redList.innerHTML = ""
     for (let i = 0; i < buttonBg.length; i++) {
-        buttonBg[i].style.backgroundColor = "#ef4747";
+        buttonBg[i].style.color = "#ef4747";
 
     }
 
@@ -300,7 +300,7 @@ white.addEventListener("click", function () {
     whiteList.innerHTML = ""
 
     for (let i = 0; i < buttonBg.length; i++) {
-        buttonBg[i].style.backgroundColor = "#e6e6e6";
+        buttonBg[i].style.color = "#e6e6e6";
 
     }
     disableBtn(white);
@@ -323,7 +323,7 @@ green.addEventListener("click", function () {
 
 
     for (let i = 0; i < buttonBg.length; i++) {
-        buttonBg[i].style.backgroundColor = "#5acfc7";
+        buttonBg[i].style.color = "#5acfc7";
 
     }
     disableBtn(green);
