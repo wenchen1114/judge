@@ -7,6 +7,8 @@
     <title>White Snake</title>
     <link rel="stylesheet" href="src/style.css">
     <link href="assets/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 
 
@@ -33,13 +35,12 @@ feedbacks
 
         <h1>It was reported that the innocent creatures in the Golden Temple were killed by an unnatural flood,
             allegedly caused by Miss White.
-
         </h1>
         <h1> You are the judge. You will hear stories from four characters and you are to judge who is guilty. You are
             deciding if Miss White or The Monk is guilty of the charge.
 
         </h1>
-        <h1> Click on the color circle, to hear their stories.
+        <h1 id="instruction"> Click on the color circle, to hear their stories.
         </h1>
         <button id="next">I am ready to judge.</button>
     </div>
@@ -58,25 +59,25 @@ feedbacks
             <div class="ball">
                 <div id="blue"></div>
                 <p id="blueChar">Xu Xian</p>
-                <p>The husband who died once.</p>
+                <p class="shortintro">The husband who died once.</p>
                 <!-- add one line for each characters experience  -->
             </div>
             <div class="ball">
                 <div id="white"></div>
                 <p id="whiteChar">Miss White</p>
-                <p>The white snake in human form. </p>
+                <p class="shortintro">The white snake in human form. </p>
 
             </div>
             <div class="ball">
                 <div id="green"></div>
                 <p id="greenChar">Miss Teal</p>
-                <p>The green snake in human form.</p>
+                <p class="shortintro">The green snake in human form.</p>
 
             </div>
             <div class="ball">
                 <div id="red"></div>
                 <p id="redChar">The Monk</p>
-                <p>The Monk </p>
+                <p class="shortintro">The Monk </p>
 
             </div>
         </div>
@@ -129,8 +130,8 @@ feedbacks
         <!-- button selections  -->
         <div id="questionsButtons">
 
-            <button id="rightBtn">Next</button>
-            <button id="leftBtn">Previous</button>
+            <button id="rightBtn">Next &gt;</button>
+            <button id="leftBtn">&lt; Previous</button>
             <div id="questions">
                 <!-- <div id="qsContent"></div> -->
 

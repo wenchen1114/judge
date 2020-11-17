@@ -136,7 +136,7 @@ let whiteAnswerArr = getAns("white");
 let greenAnswerArr = getAns("green");
 let redAnswerArr = getAns("red");
 
-qsContent.innerHTML = blueArr[index];
+qsContent.innerHTML = "Click on one character to listen to their tesimonies";
 
 //why do you have to click the right button and then select the question to make sure they appear in order? 
 
