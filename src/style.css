@@ -213,6 +213,24 @@ button{
     color: lightgray;
     border: none;
 }
+#circles{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+#circles>div{
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    opacity: 1;
+    margin: 0 20px;
+}
+
 
 #leftBtn {
     grid-area: 1 / 1 / 2 / 2;
