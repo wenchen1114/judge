@@ -51,6 +51,8 @@ feedbacks
     <!-- create four divs of four circles  -->
 
     <div id="mid" class="biggerWrapper" style="display:none">
+
+
         <div class="wrapper">
             <!-- <p>browser focused white snake story</p> -->
             <div class="ball">
@@ -80,18 +82,48 @@ feedbacks
         </div>
 
         <!-- I am thinking of creating the collections of questions and answers as pop up - still working on it  -->
-        <div class="wrapper">
+        <!-- hover to see collection of questions  -->
+        <!-- <div  id="pop-up">
             <div id="blueSection">1
-                <!-- <ul>
+                <ul>
                     <li>
                        <h2>helllo</h2>
                        <p>1</p> </li>
                     <li>hello</li>
-                </ul> -->
+                </ul> 
             </div>
             <div>2</div>
             <div>3</div>
             <div>4</div>
+        </div> -->
+
+
+        <div class="pop-up" id="bluePopUp">
+            <div id="blueClose" class="close" style="z-index: 10">
+                <h1>X</h1>
+                <ul id="blueList"></ul>
+            </div>
+        </div>
+        <div class="pop-up" id="whitePopUp">
+            <div id="whiteClose" class="close" style="z-index: 10">
+                <h1>X</h1>
+                <ul id="whiteList"></ul>
+
+            </div>
+        </div>
+        <div class="pop-up" id="redPopUp" style="z-index: 10">
+            <div id="redClose" class="close" style="z-index: 10">
+                <h1>X</h1>
+                <ul id="redList"></ul>
+
+            </div>
+        </div>
+        <div class="pop-up" id="greenPopUp" style="z-index: 10">
+            <div id="greenClose" class="close" style="z-index: 10">
+                <h1>X</h1>
+                <ul id="greenList"></ul>
+
+            </div>
         </div>
 
         <!-- button selections  -->
@@ -100,22 +132,38 @@ feedbacks
             <button id="rightBtn">Next</button>
             <button id="leftBtn">Previous</button>
             <div id="questions">
+                <!-- <div id="qsContent"></div> -->
+
 
             </div>
         </div>
 
-        <div id="answers">
+        <div id="answers"></div>
+        <br>
+        <div id="score"></div>
+
+        <div id="circles">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
 
-        <br>
-        <div id="score">
+
+
+        <div id="allInfo">
+            <p> Click on the character name to learn what you already know. </p>
+            <button id="ready">Ready</button>
         </div>
+
     </div>
 
 
     <!-- end scene  -->
     <div id="end" class="biggerWrapper" style="display:none" style="margin: 2vh auto;">
         <h1 style="top:10vh">Hey Judge, who is guilty?</h1>
+
+        <button id="gotoMid">WAIT! Take me Back</button>
 
         <div id="twoballs" class="wrapper" style="height:40vh">
 

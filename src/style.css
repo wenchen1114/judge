@@ -19,6 +19,9 @@ p {
     font-size: x-large;
 }
 
+h2{
+    font-size: xx-large;
+}
 #score {
     width: 100vw;
     text-align: center;
@@ -35,6 +38,26 @@ p {
     flex-flow: row;
     justify-content: center;
     align-items: center;
+
+}
+
+.pop-up{
+    display: none;
+    height: 50vh;
+    width: 100%; 
+    position: absolute;
+    /* display: flex; */
+    flex-flow: column nowrap;
+    justify-content: center;
+   z-index: 10;
+
+}
+.close{
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 10px 0 0 ;
 
 }
 
@@ -83,6 +106,19 @@ p {
         -5px -5px 64px #ffffff;
 }
 
+
+
+#whiteChar:hover,#redChar:hover,#greenChar:hover,#blueChar:hover{
+    cursor: pointer;
+    text-decoration-line: line-through;
+}
+#whiteChar:visited,#redChar:visited,#greenChar:visited,#blueChar:visited{
+    cursor: pointer;
+    opacity: 0.5;
+    color: #00FF00;    
+    text-decoration-line: none;
+
+}
 #green {
 
     background: linear-gradient(145deg, #6dfbf2, #5cd4cb);
@@ -97,9 +133,56 @@ p {
         -5px -5px 64px #ef4747;
 }
 
+#bluePopUp{
+    color: white;
+    background-color: #3c82aa;
+
+}
+
+#circles{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+#circles>div{
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    opacity: 1;
+    margin: 0 20px;
+}
+
+#whitePopUp{
+    color: black;
+    background-color: #b3b3b3;
+
+}
+
+
+#redPopUp{
+    color: white;
+    background-color: #bb3737;
+
+}
+
+#greenPopUp{
+    color: black;
+    background-color: #5acfc7;
+
+}
+
+
 button{
     background-color: white;
 
+}
+#allInfo{
+    display: none;
 }
 
 
