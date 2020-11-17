@@ -99,6 +99,12 @@ h2{
         -5px -5px 64px #6ff1ff;
 }
 
+#blue:hover{
+    box-shadow: 5px 5px 64px #2c6688,
+        -5px -5px 64px #49bcc9;
+        transition: box-shadow 1s;
+}
+
 #white,#whiteBtn {
 
     background: linear-gradient(145deg, #e6e6e6, #ffffff);
@@ -106,24 +112,23 @@ h2{
         -5px -5px 64px #ffffff;
 }
 
-
-
-#whiteChar:hover,#redChar:hover,#greenChar:hover,#blueChar:hover{
-    cursor: pointer;
-    text-decoration-line: line-through;
+#white:hover{
+    box-shadow: 5px 5px 64px #706d6d,
+        -5px -5px 64px #c9c4c4;
+        transition: box-shadow 1s;
 }
-#whiteChar:visited,#redChar:visited,#greenChar:visited,#blueChar:visited{
-    cursor: pointer;
-    opacity: 0.5;
-    color: #00FF00;    
-    text-decoration-line: none;
 
-}
 #green {
 
     background: linear-gradient(145deg, #6dfbf2, #5cd4cb);
     box-shadow: 5px 5px 64px #5acfc7,
         -5px -5px 64px #72fffd;
+}
+
+#green:hover{
+    box-shadow: 5px 5px 64px #358f89,
+    -5px -5px 64px #46bbb9;
+        transition: box-shadow 1s;
 }
 
 #red,#redBtn {
@@ -133,49 +138,11 @@ h2{
         -5px -5px 64px #ef4747;
 }
 
-#bluePopUp{
-    color: white;
-    background-color: #3c82aa;
-
+#red:hover{
+    box-shadow: 5px 5px 64px #882222,
+        -5px -5px 64px #ca3333;
+        transition: box-shadow 1s;
 }
-
-#circles{
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-
-}
-#circles>div{
-    width: 10px;
-    height: 10px;
-    background-color: white;
-    opacity: 1;
-    margin: 0 20px;
-}
-
-#whitePopUp{
-    color: black;
-    background-color: #b3b3b3;
-
-}
-
-
-#redPopUp{
-    color: white;
-    background-color: #bb3737;
-
-}
-
-#greenPopUp{
-    color: black;
-    background-color: #5acfc7;
-
-}
-
 
 button{
     background-color: white;
@@ -200,7 +167,7 @@ button{
 
 #questionsButtons {
     height: 20vh;
-    background-color: red;
+    /*background-color: red;*/
     width: 100vw;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -208,21 +175,22 @@ button{
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     background-origin: padding-box;
-
 }
 
 button{
-    background-color: lightgray;
+    background-color:transparent;
     color: black;
+    border: none;
 }
 
 #leftBtn {
     grid-area: 1 / 1 / 2 / 2;
+    border-right: 1px white solid;
 }
 
 #questions {
     grid-area: 1 / 2 / 2 / 5;
-    background-color: gray;
+    /*background-color: gray;*/
 
 }
 
@@ -239,6 +207,7 @@ button{
 
 #rightBtn {
     grid-area: 1 / 5 / 2 / 6;
+    border-left: 1px white solid;
 }
 
 
