@@ -70,6 +70,26 @@ h2{
     align-items: center;
 
 }
+#bluePopUp{
+    color: white;
+    background-color: #3c82aa;
+
+}
+#whitePopUp{
+    color: black;
+    background-color: #b3b3b3;
+
+}
+#redPopUp{
+    color: white;
+    background-color: #bb3737;
+
+}
+#greenPopUp{
+    color: black;
+    background-color: #5acfc7;
+
+}
 
 .pop-up{
     display: none;
