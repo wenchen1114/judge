@@ -353,11 +353,11 @@ let greenAudioArr = getAudio("green");
 let circleDiv = document.getElementById("circles");
 let circles = circleDiv.children;
 let circle = circles[counter];
+//initialize circles to be 1 
 for (const circle of circles) {
-
     circle.style.opacity=1;
-    console.log(circle);
   }
+
 //get the index - select the correponding answers 
 qsContent.addEventListener("click", function () {
 
