@@ -70,6 +70,26 @@ h2{
     align-items: center;
 
 }
+#bluePopUp{
+    color: white;
+    background-color: #3c82aa;
+
+}
+#whitePopUp{
+    color: black;
+    background-color: #b3b3b3;
+
+}
+#redPopUp{
+    color: white;
+    background-color: #bb3737;
+
+}
+#greenPopUp{
+    color: black;
+    background-color: #5acfc7;
+
+}
 
 .pop-up{
     display: none;
@@ -213,6 +233,24 @@ button{
     color: lightgray;
     border: none;
 }
+#circles{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+#circles>div{
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    opacity: 1;
+    margin: 0 20px;
+}
+
 
 #leftBtn {
     grid-area: 1 / 1 / 2 / 2;
