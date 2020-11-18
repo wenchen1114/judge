@@ -143,17 +143,15 @@ qsContent.innerHTML = "Click on one character to listen to their tesimonies";
 
 function showRQs(questionsArray) {
 
-    index++;
+  
     if (index > questionsArray.length - 1) {
         index = 0;
     }
 
-    qsContent.innerHTML = questionsArray[index];
-
 
     if (questionsArray = blueArr) {
         blueColQs.push(questionsArray[index]);
-        // qsContent.innerHTML=questionsArray[index]
+        console.log("blueColQs",blueColQs)
         console.log(qsContent.innerHTML, "qscontent")
 
     }
@@ -166,8 +164,8 @@ function showRQs(questionsArray) {
     if (questionsArray = greenArr) {
         greenColQs.push(questionsArray[index]);
     }
-
-
+    index++;
+    qsContent.innerHTML = questionsArray[index];
 
 
 }
@@ -180,12 +178,6 @@ function showLQs(questionsArray) {
         index = questionsArray.length - 1;
     }
 
-
-    // colQs.push(questionsArray[index]);
-
-
-
-    qsContent.innerHTML = questionsArray[index];
     if (questionsArray = blueArr) {
         blueColQs.push(questionsArray[index]);
     }
@@ -198,6 +190,7 @@ function showLQs(questionsArray) {
     if (questionsArray = greenArr) {
         greenColQs.push(questionsArray[index]);
     }
+    qsContent.innerHTML = questionsArray[index];
 
     console.log(questionsArray.length)
     console.log("left click ", index);
@@ -514,31 +507,6 @@ let whiteColQs = [];
 let greenColAns = [];
 let greenColQs = [];
 
-//popup finished on 11/16 
-function showCollections(colPopUp, colClose, colList, colorQs, colorAns) {
-    colList.innerHTML = "";
-
-    for (let i = 0; i < 4; i++) {
-
-        let colQsText = document.createElement("h2");
-        colQsText.innerHTML = colorQs[i];
-        let colAnsText = document.createElement("p");
-        colAnsText.innerHTML = colorAns[i];
-
-        colPopUp.style.display = "flex";
-        colClose.style.display = "flex";
-
-        colList.innerHTML += `
-        <li>
-           <h2 style='font-size:1.2em'> ${colQsText.innerHTML}</h2>
-           <p style='font-size:1em'>${colAnsText.innerHTML}</p>
-        </li>
-        <br>`
-        colPopUp.appendChild(colList);
-        console.log("colList", colList);
-
-    }
-}
 
 //click on the "X" to close each popup window
 let blueClose = document.getElementById("blueClose");
@@ -659,6 +627,33 @@ function showAnswers(answerArrays, index, col, char) {
 
 
 }
+
+//popup finished on 11/16 
+function showCollections(colPopUp, colClose, colList, colorQs, colorAns) {
+    colList.innerHTML = "";
+
+    for (let i = 0; i < 4; i++) {
+
+        let colQsText = document.createElement("h2");
+        colQsText.innerHTML = colorQs[i];
+        let colAnsText = document.createElement("p");
+        colAnsText.innerHTML = colorAns[i];
+
+        colPopUp.style.display = "flex";
+        colClose.style.display = "flex";
+
+        colList.innerHTML += `
+        <li>
+           <h2 style='font-size:1.2em'> ${colQsText.innerHTML}</h2>
+           <p style='font-size:1em'>${colAnsText.innerHTML}</p>
+        </li>
+        <br>`
+        colPopUp.appendChild(colList);
+        console.log("colList", colList);
+
+    }
+}
+
 
 //should set the audio outside, otherwise it will be created everytime you run the function 
 let audio = document.createElement("audio");
