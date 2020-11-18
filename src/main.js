@@ -678,7 +678,13 @@ function blink(c) {
     }, 500);
  }
 
-
+let animation = bodymovin.loadAnimation({
+    container:document.getElementById('bgAnim'),
+    renderer: 'svg',
+    loop: false,
+    autoplay:true,
+    path:'data.json'
+});
 
 
 //add audio - Yiting - tbf
