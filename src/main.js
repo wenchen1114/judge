@@ -76,6 +76,7 @@ function getQs(color) {
     return questionArr;
 }
 
+//fix the sound names 
 //need to load the sounds first 
 function getAudio(color) {
     let audioArr = [];
@@ -164,9 +165,10 @@ function showRQs(questionsArray) {
     if (state == "green") {
         greenColQs.push(questionsArray[index]);
     }
-    index++;
-    qsContent.innerHTML = questionsArray[index];
 
+    //avoid undefined 
+    qsContent.innerHTML = questionsArray[index];
+    index++;
 
 }
 
@@ -368,6 +370,7 @@ qsContent.addEventListener("click", function () {
         showAnswers(whiteAnswerArr, index, white, whiteChar);
         console.log(stateCounter);
         showEnding(stateCounter);
+        playAudios(whiteAudioArr, index); //play the audio
 
     }
 
@@ -375,6 +378,7 @@ qsContent.addEventListener("click", function () {
         showAnswers(greenAnswerArr, index, green, greenChar);
         console.log(stateCounter);
         showEnding(stateCounter);
+        playAudios(greenAudioArr, index); //play the audio
 
     }
 
@@ -382,6 +386,7 @@ qsContent.addEventListener("click", function () {
         showAnswers(redAnswerArr, index, red, redChar);
         console.log(stateCounter);
         showEnding(stateCounter);
+        playAudios(redAudioArr, index); //play the audio
 
 
     }
