@@ -45,6 +45,18 @@ ul{
     align-items: center;
 }
 
+#intro>div{
+    width: 70vw;
+    padding: 5vh 0;
+}
+#next{
+
+}
+#credit{
+    bottom: 0;
+    width: 100vw;
+    padding: 0;
+}
 #instruction{
     font-size: 1em;
 }
