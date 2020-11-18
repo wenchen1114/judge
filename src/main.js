@@ -142,26 +142,26 @@ qsContent.innerHTML = "Click on one character to listen to their tesimonies";
 //why do you have to click the right button and then select the question to make sure they appear in order? 
 
 function showRQs(questionsArray) {
-
+    console.log(state);
   
     if (index > questionsArray.length - 1) {
         index = 0;
     }
 
 
-    if (questionsArray = blueArr) {
+    if (state == "blue") {
         blueColQs.push(questionsArray[index]);
         console.log("blueColQs",blueColQs)
         console.log(qsContent.innerHTML, "qscontent")
 
     }
-    if (questionsArray = redArr) {
+    if (state == "red") {
         redColQs.push(questionsArray[index]);
     }
-    if (questionsArray = whiteArr) {
+    if (state == "white") {
         whiteColQs.push(questionsArray[index]);
     }
-    if (questionsArray = greenArr) {
+    if (state == "green") {
         greenColQs.push(questionsArray[index]);
     }
     index++;
@@ -178,16 +178,16 @@ function showLQs(questionsArray) {
         index = questionsArray.length - 1;
     }
 
-    if (questionsArray = blueArr) {
+    if (state == "blue") {
         blueColQs.push(questionsArray[index]);
     }
-    if (questionsArray = redArr) {
+    if (state == "red") {
         redColQs.push(questionsArray[index]);
     }
-    if (questionsArray = whiteArr) {
+    if (state == "white") {
         whiteColQs.push(questionsArray[index]);
     }
-    if (questionsArray = greenArr) {
+    if (state == "green") {
         greenColQs.push(questionsArray[index]);
     }
     qsContent.innerHTML = questionsArray[index];
@@ -201,16 +201,17 @@ function showLQs(questionsArray) {
 rightBtn.addEventListener("click", function () {
 
     if (state == "blue") {
-        showRQs(blueArr)
-    }
-    if (state == "white") {
-        showRQs(whiteArr)
-    }
-    if (state == "green") {
-        showRQs(greenArr)
-    }
-    if (state == "red") {
-        showRQs(redArr)
+        console.log("1");
+        showRQs(blueArr);
+    }else if (state == "white") {
+        console.log("2");
+        showRQs(whiteArr);
+    }else if (state == "green") {
+        console.log("3");
+        showRQs(greenArr);
+    }else if (state == "red") {
+        console.log("4");
+        showRQs(redArr);
     }
 
 })
@@ -644,8 +645,8 @@ function showCollections(colPopUp, colClose, colList, colorQs, colorAns) {
 
         colList.innerHTML += `
         <li>
-           <h2 style='font-size:1.2em'> ${colQsText.innerHTML}</h2>
-           <p style='font-size:1em'>${colAnsText.innerHTML}</p>
+           <h2 style='font-size:2vw'> ${colQsText.innerHTML}</h2>
+           <p style='font-size:1.2vw'>${colAnsText.innerHTML}</p>
         </li>
         <br>`
         colPopUp.appendChild(colList);
@@ -677,7 +678,13 @@ function blink(c) {
     }, 500);
  }
 
-
+let animation = bodymovin.loadAnimation({
+    container:document.getElementById('bgAnim'),
+    renderer: 'svg',
+    loop: false,
+    autoplay:true,
+    path:'data.json'
+});
 
 
 //add audio - Yiting - tbf

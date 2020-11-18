@@ -33,7 +33,8 @@ feedbacks
     <!-- intro scene  -->
     <div id="intro">
 
-        <div >
+        <div id="bgAnim"></div>
+
         <h1>It was reported that the innocent creatures in the Golden Temple were killed by an unnatural flood,
             allegedly caused by Miss White.
         </h1>
@@ -199,13 +200,13 @@ feedbacks
                 </h1>
                 <br>
                 <button id="gentle">Gently</button>
-                <p id="gentleText" style="display: none;">" You will not be able to be with Miss White for 10 years!"
+                <p id="gentleText" style="opacity: 0;">" You will not be able to be with Miss White for 10 years!"
                 </p>
 
                 <button id="blunt">Bluntly</button>
                 <p id="bluntText" style="display: none;">"You will get to visit Miss White each month in the Tower
                     Prison."</p>
-
+                <br>
             </div>
         </div>
 
@@ -225,8 +226,9 @@ feedbacks
     </div>
 
     <script type="module" src="src/whitesnakeAudio.js"></script>
+    <script type="module" src="src/lottie.js"></script>
     <script type="module" src="src/main.js"></script>
-
+  
 </body>
 
 </html>
