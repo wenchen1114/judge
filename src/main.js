@@ -42,6 +42,7 @@ let questions = document.getElementById("questions");
 let qsContent = document.createElement("button");
 questions.appendChild(qsContent);
 qsContent.id = "qsContent";
+qsContent.className = "Qs";
 
 let blue = document.getElementById("blue");
 let white = document.getElementById("white");
@@ -239,7 +240,7 @@ leftBtn.addEventListener("click", function () {
 
 
 
-let buttonBg = document.getElementsByTagName("button");
+let buttonBg = document.getElementsByClassName("Qs");
 blue.addEventListener("click", function () {
     index = 0;
     state = "blue";
@@ -364,29 +365,27 @@ qsContent.addEventListener("click", function () {
     if (state == "blue") {
         //should incorporate audio and answer together later 
 
-        showAnswers(blueAnswerArr, index, blue);
+        showAnswers(blueAnswerArr, index, blue, blueChar);
         showEnding(stateCounter);
         playAudios(blueAudioArr, index); //play the audio
     }
 
     if (state == "white") {
-        showAnswers(whiteAnswerArr, index, white);
+        showAnswers(whiteAnswerArr, index, white, whiteChar);
         console.log(stateCounter);
         showEnding(stateCounter);
-
 
     }
 
     if (state == "green") {
-        showAnswers(greenAnswerArr, index, green);
+        showAnswers(greenAnswerArr, index, green, greenChar);
         console.log(stateCounter);
         showEnding(stateCounter);
-
 
     }
 
     if (state == "red") {
-        showAnswers(redAnswerArr, index, red);
+        showAnswers(redAnswerArr, index, red, redChar);
         console.log(stateCounter);
         showEnding(stateCounter);
 
@@ -531,8 +530,8 @@ function showCollections(colPopUp, colClose, colList, colorQs, colorAns) {
 
         colList.innerHTML += `
         <li>
-           <h2> ${colQsText.innerHTML}</h2>
-           <p>${colAnsText.innerHTML}</p>
+           <h2 style='font-size:1.2em'> ${colQsText.innerHTML}</h2>
+           <p style='font-size:1em'>${colAnsText.innerHTML}</p>
         </li>
         <br>`
         colPopUp.appendChild(colList);
@@ -601,10 +600,10 @@ blueChar.addEventListener("click", function () {
 
 });
 
-
+let blinkText;
 
 // still counter is not fixed I guess 
-function showAnswers(answerArrays, index, col) {
+function showAnswers(answerArrays, index, col, char) {
     //index situatuion FIXED - 11/15
     let lastIndex = 0;
     if (lastIndex != index) {
@@ -615,6 +614,7 @@ function showAnswers(answerArrays, index, col) {
         anContent.innerHTML = "It's time to move on to the next candidate"
         //dim the light 
         col.style.opacity = 0.2;
+        blink(char);
         state = "done";
         if (state == "done") {
             stateCounter++;
@@ -675,6 +675,13 @@ function playAudios(audioArrays, index) {
     }
 
 }
+
+function blink(c) {
+    setInterval(function() {
+       c.style.display = (c.style.display == 'none' ? '' : 'none');
+    }, 500);
+ }
+
 
 
 
