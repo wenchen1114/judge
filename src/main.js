@@ -469,6 +469,8 @@ next.addEventListener("click", function () {
     mid.style.display = "flex";
     intro.style.display = "none";
     bgAnim.style.display = "none";
+    let crowdAudio =document.getElementById("crowdAudio");
+    crowdAudio.pause();
 
 })
 whiteBtn.addEventListener("click", function () {
@@ -542,6 +544,7 @@ ready.addEventListener("click", function () {
     mid.style.display = "none";
     bgAnim.style.display = "none";
     end.style.display = "block";
+ 
     //pause the audio when it is on the judgement screen 
     audio.pause();
 })
