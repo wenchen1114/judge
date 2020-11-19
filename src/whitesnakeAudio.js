@@ -44,7 +44,7 @@ let jsonAudioOBJ={
        },
        {
           "Question": "Did you cause the flood? If so, Why did you do it?",
-          "Answer": "Yes, I accidentally flooded the whole village. I am so sorry for the catastrophe I created. I regret every second for what I did. But...But! We lived so happily together, and the monk just took my husband away! If I can never see Xu xian again just because I am a snake…I couldn’t help but to save my husband with all my power. How can you force someone to leave their love of the lifetime? (sobbing)",
+          "Answer": "Yes, I accidentally flooded the whole village. I am so sorry for the catastrophe I created. I regret every second for what I did. But...But! We lived so happily together, and the monk just took my husband away! If I can never see Xu xian again just because I am a snake…I couldn’t help but to save my husband with all my power. How can you force someone to leave their love of their life?",
           "Audio": "Assets/White4.mp3"
        },
        {

@@ -66,6 +66,7 @@ ul{
 }
 #instruction{
     font-size: 1em;
+    font-weight: bold;
 }
 
 .shortintro{
@@ -365,7 +366,11 @@ button{
 #bluntText{
     margin: 10px 0;
 }
+a{
+    color: white;
+    text-emphasis: bold;
 
+}
 #gotoEnd{
     background-color: white;
     color:black;
