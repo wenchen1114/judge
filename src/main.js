@@ -146,17 +146,16 @@ qsContent.innerHTML = "Click on one character to listen to their tesimonies";
 
 function showRQs(questionsArray) {
     console.log(state);
-  
+       
+    index++;
     if (index > questionsArray.length - 1) {
         index = 0;
     }
-      index++;
 
 
     if (state == "blue") {
         blueColQs.push(questionsArray[index]);
         console.log("blueColQs",blueColQs)
-        console.log(qsContent.innerHTML, "qscontent")
 
     }
     if (state == "red") {
@@ -164,16 +163,19 @@ function showRQs(questionsArray) {
     }
     if (state == "white") {
         whiteColQs.push(questionsArray[index]);
+        console.log(qsContent.innerHTML, "qscontent")
+
     }
     if (state == "green") {
         greenColQs.push(questionsArray[index]);
 
     }
+  //avoid undefined  
+ 
+  qsContent.innerHTML = questionsArray[index];
 
-    //avoid undefined 
-      qsContent.innerHTML = questionsArray[index];
+
   
-
 }
 
 //when i click the charatcer name, should show the corresponding lists 
@@ -328,6 +330,8 @@ white.addEventListener("click", function () {
         buttonBg[i].style.color = "#e6e6e6";
 
     }
+
+
     disableBtn(white);
 
 })
@@ -393,7 +397,8 @@ qsContent.addEventListener("click", function () {
         showAnswers(blueAnswerArr, index, blue, blueChar);
         showEnding(stateCounter);
         if(state != "done"){
-        blue.style.animation = "shakeBlue 2s";
+        blue.style.animation = `shakeBlue 5s`;
+
         }
     }
 
@@ -402,7 +407,7 @@ qsContent.addEventListener("click", function () {
         console.log(stateCounter);
         showEnding(stateCounter);
         if(state != "done"){
-        white.style.animation = "shakeWhite 2s";
+        white.style.animation = "shakeWhite 5s";
         }
         playAudios(whiteAudioArr, index); //play the audio
 
@@ -414,7 +419,7 @@ qsContent.addEventListener("click", function () {
         console.log(stateCounter);
         showEnding(stateCounter);
         if(state != "done"){
-        green.style.animation = "shakeGreen 2s";
+        green.style.animation = "shakeGreen 5s";
         }
         playAudios(greenAudioArr, index); //play the audio
 
@@ -425,7 +430,7 @@ qsContent.addEventListener("click", function () {
         console.log(stateCounter);
         showEnding(stateCounter);
         if(state != "done"){
-        red.style.animation = "shakeRed 2s";
+        red.style.animation = "shakeRed 5s";
         }
         playAudios(redAudioArr, index); //play the audio
 
@@ -467,6 +472,8 @@ next.addEventListener("click", function () {
     mid.style.display = "flex";
     intro.style.display = "none";
     bgAnim.style.display = "none";
+    let crowdAudio =document.getElementById("crowdAudio");
+    crowdAudio.pause();
 
 })
 whiteBtn.addEventListener("click", function () {
@@ -521,9 +528,14 @@ let allInfo = document.getElementById("allInfo");
 function showEnding(stateCounter) {
     //if there are four times of the DONE, then show the END 
     //you can change the number to 1 for debugging, change back to 4 when you are done 
-    if (stateCounter == 1) {
+    if (stateCounter == 4) {
         allInfo.style.display = "block";
-        console.log('stateCounter in showending', stateCounter)
+        console.log('stateCounter in showending', stateCounter);
+        anContent.innerHTML= `
+        <p>It's time to move on make your final decision, Judge.</p>
+        <br>
+        <p>Click the character names to learn what you already know.</p>`
+
     }
 }
 
@@ -535,6 +547,9 @@ ready.addEventListener("click", function () {
     mid.style.display = "none";
     bgAnim.style.display = "none";
     end.style.display = "block";
+ 
+    //pause the audio when it is on the judgement screen 
+    audio.pause();
 })
 
 //create different popup windoes for each characters 
@@ -629,7 +644,7 @@ function showAnswers(answerArrays, index, col, char) {
     }
 
     if (counter > 3) {
-        anContent.innerHTML = "It's time to move on to the next candidate"
+        anContent.innerHTML= "It's time to move on to the next candidate."
         //dim the light 
         col.style.opacity = 0.2;
         blink(char);
@@ -645,7 +660,7 @@ function showAnswers(answerArrays, index, col, char) {
         // console.log("counter less than 4")
         console.log("index in answers", index)
         lastIndex = index;
-        scoreContent.textContent = `${(index+1)}/4`;
+        scoreContent.textContent = `${(counter+1)}/4`;
 
         // colAns.push(answerArrays[index]);
       
@@ -692,6 +707,12 @@ function showCollections(colPopUp, colClose, colList, colorQs, colorAns) {
         colPopUp.style.display = "flex";
         colClose.style.display = "flex";
 
+        if(colQsText.innerHTML=="undefined"){
+            colQsText.innerHTML=""
+        }
+        if(colAnsText.innerHTML=="undefined"){
+            colAnsText.innerHTML=""
+        }
         colList.innerHTML += `
         <li>
            <h2 style='font-size:2vw'> ${colQsText.innerHTML}</h2>
@@ -720,6 +741,7 @@ function playAudios(audioArrays, index) {
     }
 
 }
+
 
 function blink(c) {
     setInterval(function() {
