@@ -146,11 +146,11 @@ qsContent.innerHTML = "Click on one character to listen to their tesimonies";
 
 function showRQs(questionsArray) {
     console.log(state);
-  
+       
+    index++;
     if (index > questionsArray.length - 1) {
         index = 0;
     }
-     
 
 
     if (state == "blue") {
@@ -171,9 +171,10 @@ function showRQs(questionsArray) {
 
     }
   //avoid undefined  
+ 
   qsContent.innerHTML = questionsArray[index];
 
- index++;
+
   
 }
 
@@ -329,6 +330,8 @@ white.addEventListener("click", function () {
         buttonBg[i].style.color = "#e6e6e6";
 
     }
+
+
     disableBtn(white);
 
 })
