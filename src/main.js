@@ -186,6 +186,9 @@ function showLQs(questionsArray) {
     }
     if (state == "white") {
         whiteColQs.push(questionsArray[index]);
+        white.style.animation = "none";
+        white.offsetHeight;
+        white.style.animation = null;
     }
     if (state == "green") {
         greenColQs.push(questionsArray[index]);
@@ -203,31 +206,55 @@ rightBtn.addEventListener("click", function () {
     if (state == "blue") {
         console.log("1");
         showRQs(blueArr);
+        blue.style.animation = "none";
+        blue.offsetHeight;
+        blue.style.animation = null;
     }else if (state == "white") {
         console.log("2");
         showRQs(whiteArr);
+        white.style.animation = "none";
+        white.offsetHeight;
+        white.style.animation = null;
     }else if (state == "green") {
         console.log("3");
         showRQs(greenArr);
+        green.style.animation = "none";
+        green.offsetHeight;
+        green.style.animation = null;
     }else if (state == "red") {
         console.log("4");
         showRQs(redArr);
+        red.style.animation = "none";
+        red.offsetHeight;
+        red.style.animation = null;
     }
 
 })
 
 leftBtn.addEventListener("click", function () {
     if (state == "blue") {
-        showLQs(blueArr)
+        showLQs(blueArr);
+        blue.style.animation = "none";
+        blue.offsetHeight;
+        blue.style.animation = null;
     }
     if (state == "white") {
-        showLQs(whiteArr)
+        showLQs(whiteArr);
+        white.style.animation = "none";
+        white.offsetHeight;
+        white.style.animation = null;
     }
     if (state == "green") {
-        showLQs(greenArr)
+        showLQs(greenArr);
+        green.style.animation = "none";
+        green.offsetHeight;
+        green.style.animation = null;
     }
     if (state == "red") {
-        showLQs(redArr)
+        showLQs(redArr);
+        red.style.animation = "none";
+        red.offsetHeight;
+        red.style.animation = null;
     }
 
 })
@@ -362,27 +389,28 @@ qsContent.addEventListener("click", function () {
         showAnswers(blueAnswerArr, index, blue, blueChar);
         showEnding(stateCounter);
         playAudios(blueAudioArr, index); //play the audio
+        blue.style.animation = "shakeBlue 2s";
     }
 
     if (state == "white") {
         showAnswers(whiteAnswerArr, index, white, whiteChar);
         console.log(stateCounter);
         showEnding(stateCounter);
-
+        white.style.animation = "shakeWhite 2s";
     }
 
     if (state == "green") {
         showAnswers(greenAnswerArr, index, green, greenChar);
         console.log(stateCounter);
         showEnding(stateCounter);
-
+        green.style.animation = "shakeGreen 2s";
     }
 
     if (state == "red") {
         showAnswers(redAnswerArr, index, red, redChar);
         console.log(stateCounter);
         showEnding(stateCounter);
-
+        red.style.animation = "shakeRed 2s";
 
     }
 
