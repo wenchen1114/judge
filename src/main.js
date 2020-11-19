@@ -41,6 +41,7 @@ let leftBtn = document.getElementById("leftBtn");
 let questions = document.getElementById("questions");
 let qsContent = document.createElement("button");
 questions.appendChild(qsContent);
+
 qsContent.id = "qsContent";
 qsContent.className = "Qs";
 
