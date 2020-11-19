@@ -34,7 +34,11 @@ ul{
 #bgAnim{
     position: absolute;
     width:100vw;
+
     pointer-events:none;
+
+    /* z-index: 20; */
+
 }
 
 #intro{
@@ -44,11 +48,13 @@ ul{
     height:100vh;
     justify-content: center;
     align-items: center;
+
 }
 
 #intro>div{
     width: 70vw;
     padding: 5vh 0;
+  
 }
 #next{
     display: block;
