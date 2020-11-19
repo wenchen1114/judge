@@ -148,6 +148,7 @@ function showRQs(questionsArray) {
     if (index > questionsArray.length - 1) {
         index = 0;
     }
+      index++;
 
 
     if (state == "blue") {
@@ -164,11 +165,12 @@ function showRQs(questionsArray) {
     }
     if (state == "green") {
         greenColQs.push(questionsArray[index]);
+
     }
 
     //avoid undefined 
-    qsContent.innerHTML = questionsArray[index];
-    index++;
+      qsContent.innerHTML = questionsArray[index];
+  
 
 }
 
@@ -387,10 +389,10 @@ qsContent.addEventListener("click", function () {
 
     if (state == "blue") {
         //should incorporate audio and answer together later 
+        playAudios(blueAudioArr, index); //play the audio
 
         showAnswers(blueAnswerArr, index, blue, blueChar);
         showEnding(stateCounter);
-        playAudios(blueAudioArr, index); //play the audio
         blue.style.animation = "shakeBlue 2s";
     }
 
@@ -632,7 +634,7 @@ function showAnswers(answerArrays, index, col, char) {
 
     } else {
         anContent.innerHTML = answerArrays[index];
-        console.log("counter less than 4")
+        // console.log("counter less than 4")
         console.log("index in answers", index)
         lastIndex = index;
         scoreContent.textContent = `${(index+1)}/4`;
