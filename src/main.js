@@ -76,6 +76,7 @@ function getQs(color) {
     return questionArr;
 }
 
+//fix the sound names 
 //need to load the sounds first 
 function getAudio(color) {
     let audioArr = [];
@@ -164,9 +165,10 @@ function showRQs(questionsArray) {
     if (state == "green") {
         greenColQs.push(questionsArray[index]);
     }
-    index++;
-    qsContent.innerHTML = questionsArray[index];
 
+    //avoid undefined 
+    qsContent.innerHTML = questionsArray[index];
+    index++;
 
 }
 
@@ -396,7 +398,12 @@ qsContent.addEventListener("click", function () {
         showAnswers(whiteAnswerArr, index, white, whiteChar);
         console.log(stateCounter);
         showEnding(stateCounter);
+
         white.style.animation = "shakeWhite 2s";
+
+        playAudios(whiteAudioArr, index); //play the audio
+
+
     }
 
     if (state == "green") {
@@ -404,6 +411,8 @@ qsContent.addEventListener("click", function () {
         console.log(stateCounter);
         showEnding(stateCounter);
         green.style.animation = "shakeGreen 2s";
+        playAudios(greenAudioArr, index); //play the audio
+
     }
 
     if (state == "red") {
@@ -411,6 +420,8 @@ qsContent.addEventListener("click", function () {
         console.log(stateCounter);
         showEnding(stateCounter);
         red.style.animation = "shakeRed 2s";
+        playAudios(redAudioArr, index); //play the audio
+
 
     }
 
