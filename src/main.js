@@ -466,6 +466,8 @@ let mid = document.getElementById("mid");
 next.addEventListener("click", function () {
     mid.style.display = "flex";
     intro.style.display = "none";
+    bgAnim.style.display = "none";
+
 })
 whiteBtn.addEventListener("click", function () {
     resultforWhite.style.display = "block";
@@ -530,7 +532,7 @@ let ready = document.getElementById("ready");
 ready.addEventListener("click", function () {
     intro.style.display = "none";
     mid.style.display = "none";
-    bgAnim.style.opacity = "0";
+    bgAnim.style.display = "none";
     end.style.display = "block";
 })
 
@@ -731,6 +733,8 @@ let animation = bodymovin.loadAnimation({
     autoplay:true,
     path:'data.json'
 });
+
+
 
 
 //add audio - Yiting - tbf
