@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="src/style.css">
     <link href="assets/favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
 </head>
 
 
@@ -31,72 +33,71 @@ feedbacks
 <body>
 
     <!-- intro scene  -->
-  
+
 
     <div id="intro">
 
-  <!-- <div id="bgAnim" style="z-index: 0;"></div> -->
+        <div id="bgAnim" style="z-index: 0;"></div>
         <div style="z-index: 10;">
-        <h1>It was reported that the innocent creatures in the Golden Temple were killed by an unnatural flood,
-            allegedly caused by Miss White.
-        </h1>
-        <br>
-        <h1> You are the judge. You will hear stories from four characters and you are to judge who is guilty. You are
-            deciding if Miss White or The Monk is guilty of the charge.
+            <h1>It was reported that the innocent creatures in the Golden Temple were killed by an unnatural flood,
+                allegedly caused by Miss White.
+            </h1>
+            <br>
+            <h1> You are the judge. You will hear stories from four characters and you are to judge who is guilty. You
+                are
+                deciding if Miss White or The Monk is guilty of the charge.
 
-        </h1>
-        <br>
-        <h1 id="instruction" style="z-index: 10;"> Click on the color circle, to hear their stories.
-        </h1>
-        <button id="next">I am ready to judge.</button>
+            </h1>
+            <br>
+            <h1 id="instruction" style="z-index: 10;"> Click on the color circle, to hear their stories.
+            </h1>
 
-</div>
-<!--        <div> <button id="next" style="z-index: 10;">I am ready to judge.</button></div> -->
+        </div>
+            <div> <button id="next" style="z-index: 10;">I am ready to judge.</button></div>
 
-
-        <div id="credit" style="z-index: 10;">Created by Yiting Liu and Wen Chen, 2020</div>
-    </div>
-
-
-    <!-- main scene -->
-
-    <!-- top bar -->
-    <!-- create four divs of four circles  -->
-
-    <div id="mid" class="biggerWrapper" style="display:none">
-
-
-        <div class="wrapper">
-            <!-- <p>browser focused white snake story</p> -->
-            <div class="ball">
-                <div id="blue"></div>
-                <p id="blueChar">Xu Xian</p>
-                <p class="shortintro">The husband who died once.</p>
-                <!-- add one line for each characters experience  -->
-            </div>
-            <div class="ball">
-                <div id="white"></div>
-                <p id="whiteChar">Miss White</p>
-                <p class="shortintro">The white snake in human form. </p>
-
-            </div>
-            <div class="ball">
-                <div id="green"></div>
-                <p id="greenChar">Miss Teal</p>
-                <p class="shortintro">The green snake in human form.</p>
-
-            </div>
-            <div class="ball">
-                <div id="red"></div>
-                <p id="redChar">The Monk</p>
-                <p class="shortintro">The Monk </p>
-
-            </div>
+            <div id="credit" style="z-index: 10;">Created by Yiting Liu and Wen Chen, 2020</div>
         </div>
 
-        <!-- I am thinking of creating the collections of questions and answers as pop up - still working on it  -->
-        <!-- hover to see collection of questions  -->
-        <!-- <div  id="pop-up">
+
+        <!-- main scene -->
+
+        <!-- top bar -->
+        <!-- create four divs of four circles  -->
+
+        <div id="mid" class="biggerWrapper" style="display:none">
+
+
+            <div class="wrapper">
+                <!-- <p>browser focused white snake story</p> -->
+                <div class="ball">
+                    <div id="blue"></div>
+                    <p id="blueChar">Xu Xian</p>
+                    <p class="shortintro">The husband who died once.</p>
+                    <!-- add one line for each characters experience  -->
+                </div>
+                <div class="ball">
+                    <div id="white"></div>
+                    <p id="whiteChar">Miss White</p>
+                    <p class="shortintro">The white snake in human form. </p>
+
+                </div>
+                <div class="ball">
+                    <div id="green"></div>
+                    <p id="greenChar">Miss Teal</p>
+                    <p class="shortintro">The green snake in human form.</p>
+
+                </div>
+                <div class="ball">
+                    <div id="red"></div>
+                    <p id="redChar">The Monk</p>
+                    <p class="shortintro">The Monk </p>
+
+                </div>
+            </div>
+
+            <!-- I am thinking of creating the collections of questions and answers as pop up - still working on it  -->
+            <!-- hover to see collection of questions  -->
+            <!-- <div  id="pop-up">
             <div id="blueSection">1
                 <ul>
                     <li>
@@ -111,129 +112,129 @@ feedbacks
         </div> -->
 
 
-        <div class="pop-up" id="bluePopUp">
-            <div id="blueClose" class="close" style="z-index: 10">
-                <h1>X</h1>
-                <ul id="blueList"></ul>
+            <div class="pop-up" id="bluePopUp">
+                <div id="blueClose" class="close" style="z-index: 10">
+                    <h1>X</h1>
+                    <ul id="blueList"></ul>
+                </div>
             </div>
-        </div>
-        <div class="pop-up" id="whitePopUp">
-            <div id="whiteClose" class="close" style="z-index: 10">
-                <h1>X</h1>
-                <ul id="whiteList"></ul>
+            <div class="pop-up" id="whitePopUp">
+                <div id="whiteClose" class="close" style="z-index: 10">
+                    <h1>X</h1>
+                    <ul id="whiteList"></ul>
 
+                </div>
             </div>
-        </div>
-        <div class="pop-up" id="redPopUp" style="z-index: 10">
-            <div id="redClose" class="close" style="z-index: 10">
-                <h1>X</h1>
-                <ul id="redList"></ul>
+            <div class="pop-up" id="redPopUp" style="z-index: 10">
+                <div id="redClose" class="close" style="z-index: 10">
+                    <h1>X</h1>
+                    <ul id="redList"></ul>
 
+                </div>
             </div>
-        </div>
-        <div class="pop-up" id="greenPopUp" style="z-index: 10">
-            <div id="greenClose" class="close" style="z-index: 10">
-                <h1>X</h1>
-                <ul id="greenList"></ul>
+            <div class="pop-up" id="greenPopUp" style="z-index: 10">
+                <div id="greenClose" class="close" style="z-index: 10">
+                    <h1>X</h1>
+                    <ul id="greenList"></ul>
 
-            </div>
-        </div>
-
-        <!-- button selections  -->
-        <div id="questionsButtons" class="Qs">
-
-            <button id="rightBtn" class="Qs">Next &gt;</button>
-            <button id="leftBtn" class="Qs">&lt; Previous</button>
-            <div id="questions" class="Qs">
-                <!-- <div id="qsContent"></div> -->
-
-
-            </div>
-        </div>
-
-        <div id="answers"></div>
-        <br>
-        <div id="score"></div>
-
-        <div id="circles">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-
-
-
-        <div id="allInfo">
-            <button id="ready">Ready</button>
-        </div>
-
-    </div>
-
-
-    <!-- end scene  -->
-    <div id="end" class="biggerWrapper" style="display:none" style="margin: 2vh auto;">
-        <h1 style="top:10vh">Hey Judge, who is guilty?</h1>
-
-        <button id="gotoMid">WAIT! Take me Back</button>
-
-        <div id="twoballs" class="wrapper" style="height:40vh">
-
-            <div class="ball">
-                <div id="whiteBtn"></div>
-                <p id="whiteBtnChar">Miss White</p>
+                </div>
             </div>
 
-            <div class="ball">
-                <div id="redBtn"></div>
-                <p id="redBtnChar">The Monk</p>
+            <!-- button selections  -->
+            <div id="questionsButtons" class="Qs">
+
+                <button id="rightBtn" class="Qs">Next &gt;</button>
+                <button id="leftBtn" class="Qs">&lt; Previous</button>
+                <div id="questions" class="Qs">
+                    <!-- <div id="qsContent"></div> -->
+
+
+                </div>
             </div>
 
-        </div>
-        <div id="resultforWhite">
-
-            <br><br>
-            <h1>Tower Prison for 10 years for Miss White
-            </h1>
-
+            <div id="answers"></div>
             <br>
+            <div id="score"></div>
 
-            <button id="wait">But Wait!</button>
-            <div id="resultforBlue" style="display:none;">
-
-                <h1>How would you like to tell Xu Xian?
-                </h1>
-                <br>
-                <button id="gentle">Gently</button>
-                <p id="gentleText" style="opacity: 0;">" You will not be able to be with Miss White for 10 years!"
-                </p>
-
-                <button id="blunt">Bluntly</button>
-                <p id="bluntText" style="display: none;">"You will get to visit Miss White each month in the Tower
-                    Prison."</p>
-                <br>
+            <div id="circles">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
+
+
+
+            <div id="allInfo">
+                <button id="ready">Ready</button>
+            </div>
+
         </div>
 
-        <div id="resultforRed">
-            <br><br>
-            <h1>Tower Prison for 10 years, Miss White gets to reunite with Xu Xian and Miss Teal
+
+        <!-- end scene  -->
+        <div id="end" class="biggerWrapper" style="display:none" style="margin: 2vh auto;">
+            <h1 style="top:10vh">Hey Judge, who is guilty?</h1>
+
+            <button id="gotoMid">WAIT! Take me Back</button>
+
+            <div id="twoballs" class="wrapper" style="height:40vh">
+
+                <div class="ball">
+                    <div id="whiteBtn"></div>
+                    <p id="whiteBtnChar">Miss White</p>
+                </div>
+
+                <div class="ball">
+                    <div id="redBtn"></div>
+                    <p id="redBtnChar">The Monk</p>
+                </div>
+
+            </div>
+            <div id="resultforWhite">
+
+                <br><br>
+                <h1>Tower Prison for 10 years for Miss White
+                </h1>
+
+                <br>
+
+                <button id="wait">But Wait!</button>
+                <div id="resultforBlue" style="display:none;">
+
+                    <h1>How would you like to tell Xu Xian?
+                    </h1>
+                    <br>
+                    <button id="gentle">Gently</button>
+                    <p id="gentleText" style="opacity: 0;">" You will not be able to be with Miss White for 10 years!"
+                    </p>
+
+                    <button id="blunt">Bluntly</button>
+                    <p id="bluntText" style="display: none;">"You will get to visit Miss White each month in the Tower
+                        Prison."</p>
+                    <br>
+                </div>
+            </div>
+
+            <div id="resultforRed">
+                <br><br>
+                <h1>Tower Prison for 10 years, Miss White gets to reunite with Xu Xian and Miss Teal
+            </div>
+
+            <div id="finalChoice" style="display: none;">
+                <!-- go back to the selection - end -->
+                <button id="gotoEnd">I change my mind</button>
+                <!-- link to start over -->
+                <button id="gotoStart">
+                    <a href="index.html"> Start over</a></button>
+            </div>
+
         </div>
 
-        <div id="finalChoice" style="display: none;">
-            <!-- go back to the selection - end -->
-            <button id="gotoEnd">I change my mind</button>
-            <!-- link to start over -->
-            <button id="gotoStart">
-                <a href="index.html"> Start over</a></button>
-        </div>
+        <script type="module" src="src/whitesnakeAudio.js"></script>
+        <script type="module" src="src/lottie.js"></script>
+        <script type="module" src="src/main.js"></script>
 
-    </div>
-
-    <script type="module" src="src/whitesnakeAudio.js"></script>
-    <script type="module" src="src/lottie.js"></script>
-    <script type="module" src="src/main.js"></script>
-  
 </body>
 
 </html>
