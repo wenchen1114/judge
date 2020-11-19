@@ -528,9 +528,9 @@ function showEnding(stateCounter) {
 //user ready to judge 
 let ready = document.getElementById("ready");
 ready.addEventListener("click", function () {
+    bgAnim.style.display = "none";
     intro.style.display = "none";
     mid.style.display = "none";
-    bgAnim.style.opacity = "0";
     end.style.display = "block";
 })
 
