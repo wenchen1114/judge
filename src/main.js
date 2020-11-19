@@ -525,7 +525,12 @@ function showEnding(stateCounter) {
     //you can change the number to 1 for debugging, change back to 4 when you are done 
     if (stateCounter == 4) {
         allInfo.style.display = "block";
-        console.log('stateCounter in showending', stateCounter)
+        console.log('stateCounter in showending', stateCounter);
+        anContent.innerHTML= `
+        <p>It's time to move on make your final decision, Judge.</p>
+        <br>
+        <p>Click the character names to learn what you already know.</p>`
+
     }
 }
 
