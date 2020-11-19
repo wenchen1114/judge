@@ -150,13 +150,12 @@ function showRQs(questionsArray) {
     if (index > questionsArray.length - 1) {
         index = 0;
     }
-      index++;
+     
 
 
     if (state == "blue") {
         blueColQs.push(questionsArray[index]);
         console.log("blueColQs",blueColQs)
-        console.log(qsContent.innerHTML, "qscontent")
 
     }
     if (state == "red") {
@@ -164,16 +163,18 @@ function showRQs(questionsArray) {
     }
     if (state == "white") {
         whiteColQs.push(questionsArray[index]);
+        console.log(qsContent.innerHTML, "qscontent")
+
     }
     if (state == "green") {
         greenColQs.push(questionsArray[index]);
 
     }
+  //avoid undefined  
+  qsContent.innerHTML = questionsArray[index];
 
-    //avoid undefined 
-      qsContent.innerHTML = questionsArray[index];
+ index++;
   
-
 }
 
 //when i click the charatcer name, should show the corresponding lists 
@@ -393,7 +394,8 @@ qsContent.addEventListener("click", function () {
         showAnswers(blueAnswerArr, index, blue, blueChar);
         showEnding(stateCounter);
         if(state != "done"){
-        blue.style.animation = "shakeBlue 2s";
+        blue.style.animation = `shakeBlue 5s`;
+
         }
     }
 
@@ -402,7 +404,7 @@ qsContent.addEventListener("click", function () {
         console.log(stateCounter);
         showEnding(stateCounter);
         if(state != "done"){
-        white.style.animation = "shakeWhite 2s";
+        white.style.animation = "shakeWhite 5s";
         }
         playAudios(whiteAudioArr, index); //play the audio
 
@@ -414,7 +416,7 @@ qsContent.addEventListener("click", function () {
         console.log(stateCounter);
         showEnding(stateCounter);
         if(state != "done"){
-        green.style.animation = "shakeGreen 2s";
+        green.style.animation = "shakeGreen 5s";
         }
         playAudios(greenAudioArr, index); //play the audio
 
@@ -425,7 +427,7 @@ qsContent.addEventListener("click", function () {
         console.log(stateCounter);
         showEnding(stateCounter);
         if(state != "done"){
-        red.style.animation = "shakeRed 2s";
+        red.style.animation = "shakeRed 5s";
         }
         playAudios(redAudioArr, index); //play the audio
 
@@ -521,7 +523,7 @@ let allInfo = document.getElementById("allInfo");
 function showEnding(stateCounter) {
     //if there are four times of the DONE, then show the END 
     //you can change the number to 1 for debugging, change back to 4 when you are done 
-    if (stateCounter == 1) {
+    if (stateCounter == 4) {
         allInfo.style.display = "block";
         console.log('stateCounter in showending', stateCounter)
     }
@@ -535,6 +537,8 @@ ready.addEventListener("click", function () {
     mid.style.display = "none";
     bgAnim.style.display = "none";
     end.style.display = "block";
+    //pause the audio when it is on the judgement screen 
+    audio.pause();
 })
 
 //create different popup windoes for each characters 
@@ -629,7 +633,7 @@ function showAnswers(answerArrays, index, col, char) {
     }
 
     if (counter > 3) {
-        anContent.innerHTML = "It's time to move on to the next candidate"
+        anContent.innerHTML= "It's time to move on to the next candidate."
         //dim the light 
         col.style.opacity = 0.2;
         blink(char);
@@ -692,6 +696,12 @@ function showCollections(colPopUp, colClose, colList, colorQs, colorAns) {
         colPopUp.style.display = "flex";
         colClose.style.display = "flex";
 
+        if(colQsText.innerHTML=="undefined"){
+            colQsText.innerHTML=""
+        }
+        if(colAnsText.innerHTML=="undefined"){
+            colAnsText.innerHTML=""
+        }
         colList.innerHTML += `
         <li>
            <h2 style='font-size:2vw'> ${colQsText.innerHTML}</h2>
@@ -720,6 +730,7 @@ function playAudios(audioArrays, index) {
     }
 
 }
+
 
 function blink(c) {
     setInterval(function() {
