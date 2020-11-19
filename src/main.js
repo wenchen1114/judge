@@ -660,7 +660,7 @@ function showAnswers(answerArrays, index, col, char) {
         // console.log("counter less than 4")
         console.log("index in answers", index)
         lastIndex = index;
-        scoreContent.textContent = `${(index+1)}/4`;
+        scoreContent.textContent = `${(counter+1)}/4`;
 
         // colAns.push(answerArrays[index]);
       
