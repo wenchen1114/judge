@@ -48,6 +48,7 @@ let blue = document.getElementById("blue");
 let white = document.getElementById("white");
 let green = document.getElementById("green");
 let red = document.getElementById("red");
+let bgAnim = document.getElementById("bgAnim");
 
 let state = "";
 let index = 0;
@@ -190,9 +191,6 @@ function showLQs(questionsArray) {
     }
     if (state == "white") {
         whiteColQs.push(questionsArray[index]);
-        white.style.animation = "none";
-        white.offsetHeight;
-        white.style.animation = null;
     }
     if (state == "green") {
         greenColQs.push(questionsArray[index]);
@@ -393,16 +391,18 @@ qsContent.addEventListener("click", function () {
 
         showAnswers(blueAnswerArr, index, blue, blueChar);
         showEnding(stateCounter);
+        if(state != "done"){
         blue.style.animation = "shakeBlue 2s";
+        }
     }
 
     if (state == "white") {
         showAnswers(whiteAnswerArr, index, white, whiteChar);
         console.log(stateCounter);
         showEnding(stateCounter);
-
+        if(state != "done"){
         white.style.animation = "shakeWhite 2s";
-
+        }
         playAudios(whiteAudioArr, index); //play the audio
 
 
@@ -412,7 +412,9 @@ qsContent.addEventListener("click", function () {
         showAnswers(greenAnswerArr, index, green, greenChar);
         console.log(stateCounter);
         showEnding(stateCounter);
+        if(state != "done"){
         green.style.animation = "shakeGreen 2s";
+        }
         playAudios(greenAudioArr, index); //play the audio
 
     }
@@ -421,7 +423,9 @@ qsContent.addEventListener("click", function () {
         showAnswers(redAnswerArr, index, red, redChar);
         console.log(stateCounter);
         showEnding(stateCounter);
+        if(state != "done"){
         red.style.animation = "shakeRed 2s";
+        }
         playAudios(redAudioArr, index); //play the audio
 
 
@@ -456,7 +460,6 @@ let finalChoice = document.getElementById("finalChoice");
 let intro = document.getElementById("intro");
 //intro button to continue 
 let next = document.getElementById("next");
-
 //the game
 let mid = document.getElementById("mid");
 next.addEventListener("click", function () {
@@ -526,6 +529,7 @@ let ready = document.getElementById("ready");
 ready.addEventListener("click", function () {
     intro.style.display = "none";
     mid.style.display = "none";
+    bgAnim.style.opacity = "0";
     end.style.display = "block";
 })
 
